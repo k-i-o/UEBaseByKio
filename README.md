@@ -2,7 +2,7 @@
 
 ![image](https://github.com/k-i-o/IL2CPPBaseByKio/assets/68398653/e6687de3-e6c2-4ac9-922e-17982a81272a)
 
-New Base By Kio For Il2CPP Unity Game Hacking
+New Base By Kio For Unreal Engine Game Hacking
 
 Youtube Channel: https://www.youtube.com/@kiocode
 
@@ -22,7 +22,7 @@ Youtube Channel: https://www.youtube.com/@kiocode
 ![image](https://github.com/k-i-o/IL2CPPBaseByKio/assets/68398653/480a1a7b-6f72-4841-96f9-73b33c7d5d7f)
 
 ## Installation
-1) Clone the repo with `git clone https://github.com/k-i-o/IL2CPPBaseByKio`
+1) Clone the repo with `git clone https://github.com/k-i-o/UEBaseByKio`
 2) If you doesn't need Lua, just remove:
    - The luaaa.hpp inside Libraries
    - Delete the function `DrawLuaEditor` inside Core > Utils.h
@@ -52,8 +52,6 @@ BEFORE BUILD MAKE SURE OF THESE VISUAL STUDIO CONFIG
 ![screenshot3](images/image2.png)
 
 ## Credits
-SneakyEvil For The Resolver - https://github.com/sneakyevil/IL2CPP_Resolver &
-
 RDBO For His ImGui DX11 Hook - https://github.com/rdbo/ImGui-DirectX-11-Kiero-Hook &
 
-Idol For His First Base - https://github.com/IdolTheDev/Il2CPP-Base
+Kio for my il2cpp games base - https://github.com/k-i-o/IL2CPPBaseByKio
