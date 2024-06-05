@@ -185,7 +185,7 @@ static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 	return oPresent(pSwapChain, SyncInterval, Flags);
 }
 
-void bindToLUA(lua_State* L)
+static void bindToLUA(lua_State* L)
 {
 	LuaModule(L)
 		.def("pi", 3.1415926535897932)
