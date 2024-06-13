@@ -11,6 +11,8 @@
 #include <Core/Variables.h>
 #include <Libraries/luaaa.hpp>
 
+
+
 using namespace Variables;
 using namespace luaaa;
 
@@ -248,5 +250,174 @@ namespace Utils
 		}
 
 		ImGui::End();
+	}
+
+	void DumpUObjects()
+	{
+		std::cout << CheatVariables::Engine->ConsoleClass->GetFullName() << std::endl;
+
+		for (int i = 0; i < SDK::UObject::GObjects->Num(); i++)
+		{
+			const SDK::UObject* Obj = SDK::UObject::GObjects->GetByIndex(i);
+
+			if (!Obj)
+				continue;
+
+			if (!Obj->IsDefaultObject())
+				continue;
+
+			/* Only the 'IsA' check using the cast flags is required, the other 'IsA' is redundant */
+			if (Obj->IsA(SDK::APawn::StaticClass()) || Obj->HasTypeFlag(SDK::EClassCastFlags::Pawn))
+			{
+				std::cout << Obj->GetFullName() << "\n";
+			}
+		}
+	}
+
+	bool IsBadPoint(SDK::UEngine* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::UGameInstance* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::ULocalPlayer* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::APlayerController* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::APlayerState* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::UWorld* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::AGameStateBase* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::UProjectileMovementComponent* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	bool IsBadPoint(SDK::AActor* ptr)
+	{
+		std::uintptr_t Pointer = reinterpret_cast<std::uintptr_t>(ptr);
+
+		if ((Pointer < 0xFFFFFFFFFFULL) || (Pointer > 0x2FFFFFFFFFFULL))
+			return true;
+
+		return false;
+	}
+
+	void FetchObjects() {
+
+		//while (true)
+		//{
+
+			if (!CheatVariables::MyController) {
+				std::cout << "MyController error" << std::endl;
+				return;
+			}
+			if (!CheatVariables::MyController->PlayerCameraManager) {
+				std::cout << "PlayerCameraManager error" << std::endl;
+				return;
+			}
+			if (CheatVariables::World->Levels.Num() == 0) {
+				std::cout << "0 Levels" << std::endl;
+				return;
+			}
+
+			SDK::ULevel* currLevel = CheatVariables::World->Levels[0];
+			if (!currLevel) {
+				std::cout << "Level 0 error" << std::endl;
+				return;
+			}
+
+			CheatVariables::TargetsList.clear();
+						
+			//std::cout << "actors: " << currLevel->Actors.Num() << std::endl;
+
+			for (int j = 0; j < currLevel->Actors.Num(); j++)
+			{
+				SDK::AActor* currActor = currLevel->Actors[j];
+
+				if (!currActor)
+					continue;
+				if (!currActor->RootComponent)
+					continue;
+				if (Utils::IsBadPoint(currActor))
+					continue;
+
+				const auto location = currActor->K2_GetActorLocation();
+				if (location.X == 0.f || location.Y == 0.f || location.Z == 0.f)
+					continue;
+
+				//if (currActor->GetFullName().find("YOUR_NPC") != std::string::npos)
+				if (currActor->GetFullName().find("NPC_Police") != std::string::npos || currActor->GetFullName().find("NPC_Guard") != std::string::npos)
+					CheatVariables::TargetsList.push_back(currActor);
+				}
+
+				//std::cout << currActor->GetFullName() << std::endl;
+
+
+			}
+
+			//Sleep(20);
+		//}
 	}
 }

@@ -15,6 +15,9 @@
     <ClCompile Include="Libraries\kiero\minhook\src\trampoline.c" />
     <ClCompile Include="Libraries\kiero\kiero.cpp" />
     <ClCompile Include="Libraries\Vectors\vec2.cpp" />
+    <ClCompile Include="DumpedFiles\SDK\CoreUObject_functions.cpp" />
+    <ClCompile Include="DumpedFiles\SDK\Basic.cpp" />
+    <ClCompile Include="DumpedFiles\SDK\Engine_functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Cheats.h" />
@@ -49,9 +52,26 @@
     <ClInclude Include="Utils\Themes.h" />
     <ClInclude Include="Utils\Utils.h" />
     <ClInclude Include="Libraries\luaaa.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\AIModule_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\AudioPlatformConfiguration_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\CoreUObject_classes.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\CoreUObject_parameters.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\CoreUObject_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\InputCore_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\PacketHandler_classes.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Slate_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\SlateCore_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Basic.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Engine_classes.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Engine_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Engine_parameters.hpp" />
+    <ClInclude Include="DumpedFiles\PropertyFixup.hpp" />
+    <ClInclude Include="DumpedFiles\SDK.hpp" />
+    <ClInclude Include="DumpedFiles\UnrealContainers.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Libraries\kiero\minhook\dll_resources\MinHook.def" />
+    <None Include="DumpedFiles\NameCollisions.inl" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Libraries\kiero\minhook\dll_resources\MinHook.rc" />

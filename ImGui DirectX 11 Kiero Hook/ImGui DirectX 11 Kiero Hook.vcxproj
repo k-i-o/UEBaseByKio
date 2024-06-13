@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DumpedFiles\SDK\Basic.cpp" />
+    <ClCompile Include="DumpedFiles\SDK\CoreUObject_functions.cpp" />
+    <ClCompile Include="DumpedFiles\SDK\Engine_functions.cpp" />
     <ClCompile Include="Libraries\imgui\imgui.cpp" />
     <ClCompile Include="Libraries\imgui\imgui_demo.cpp" />
     <ClCompile Include="Libraries\imgui\imgui_draw.cpp" />
@@ -38,6 +41,22 @@
     <ClInclude Include="Core\Cheats.h" />
     <ClInclude Include="Core\HooksFunctions.h" />
     <ClInclude Include="Core\Variables.h" />
+    <ClInclude Include="DumpedFiles\PropertyFixup.hpp" />
+    <ClInclude Include="DumpedFiles\SDK.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\AIModule_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\AudioPlatformConfiguration_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Basic.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\CoreUObject_classes.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\CoreUObject_parameters.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\CoreUObject_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Engine_classes.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Engine_parameters.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Engine_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\InputCore_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\PacketHandler_classes.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\SlateCore_structs.hpp" />
+    <ClInclude Include="DumpedFiles\SDK\Slate_structs.hpp" />
+    <ClInclude Include="DumpedFiles\UnrealContainers.hpp" />
     <ClInclude Include="Libraries\Fonts\fa_solid_900.h" />
     <ClInclude Include="Libraries\Fonts\Font.h" />
     <ClInclude Include="Libraries\Fonts\font_awesome_5.h" />
@@ -69,6 +88,7 @@
     <ClInclude Include="Utils\Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DumpedFiles\NameCollisions.inl" />
     <None Include="Libraries\kiero\minhook\dll_resources\MinHook.def" />
   </ItemGroup>
   <ItemGroup>

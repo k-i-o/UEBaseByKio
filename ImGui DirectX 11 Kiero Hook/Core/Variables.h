@@ -1,9 +1,11 @@
 #pragma once
 #include <cstdint>
-#include <Utils/Includes.h>
 #include <string>
 #include <lua.hpp>
 #include <vector> 
+
+#include <Utils/Includes.h>
+#include <DumpedFiles/SDK.hpp>
 
 namespace Variables
 {
@@ -60,6 +62,15 @@ testFn()
 	namespace CheatVariables 
 	{
 		// declare players list
+		SDK::UEngine* Engine{};
+		SDK::UWorld* World{};
+		SDK::APlayerController* MyController{};
+		//SDK::APlayerCharacter_C* CharacterClass{};
+		SDK::APawn* MyPawn{};
+		SDK::TArray<class SDK::APlayerState*> PlayerArray{};
+
+		std::vector<SDK::AActor*> TargetsList(NULL);
+
 		ImColor TargetPlayerColor = ImColor(255, 0, 0);
 
 		std::vector<std::pair<int, int>> BonePairs = {

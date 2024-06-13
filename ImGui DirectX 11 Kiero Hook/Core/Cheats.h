@@ -161,9 +161,12 @@ void DrawMenu()
 
 				{ // Aimbot
 					ImGui::Text("Aimbot Height");
+					ImGui::Text("Head Diff Pos");
 					ImGui::SameLine();
-					ImGui::SliderFloat("##Head Diff Pos", &CheatMenuVariables::FakeHeadPosDiff, -20.0f, 40.0f);
-					ImGui::SliderFloat("##Feet Diff Pos", &CheatMenuVariables::FakeFeetPosDiff, -20.0f, 40.0f);
+					ImGui::SliderFloat("##Head Pos", &CheatMenuVariables::FakeHeadPosDiff, -10.0f, 30.0f);
+					ImGui::Text("Feet Diff Pos");
+					ImGui::SameLine();
+					ImGui::SliderFloat("##Feet Pos", &CheatMenuVariables::FakeFeetPosDiff, -10.0f, 30.0f);
 
 					ImGui::Separator();
 					ImGui::Spacing();
@@ -264,7 +267,10 @@ void DrawMenu()
 				{
 					ImGui::Indent();
 
-					ImGui::Checkbox("Show Inspector", &CheatMenuVariables::ShowInspector);
+					if (ImGui::Button("Dump scene objects")) {
+						Utils::DumpUObjects();
+					}
+
 					ImGui::Checkbox("Show Lua Editor", &Lua::ShowEditor);
 					ImGui::Spacing();
 
@@ -278,15 +284,40 @@ void DrawMenu()
 	}
 }
 
+int len = 0;
 void CheatsLoop()
 {
 	DWORD currentTime = GetTickCount64(); 
 
-	// if (!) return; return if world or engine are null
+	if (!CheatVariables::World || !CheatVariables::Engine) return;
 
-	//for (int i = 0; i < CheatVariables::PlayersList.size(); i++)
-	//{
-	//}
+	if (CheatVariables::TargetsList.size() != len) {
+		std::cout << "targets: " << CheatVariables::TargetsList.size() << std::endl;
+		len = CheatVariables::TargetsList.size();
+	}
+	for (int i = 0; i < CheatVariables::TargetsList.size(); i++)
+	{
+		auto currTarget = CheatVariables::TargetsList[i];
+
+		SDK::FVector origin;
+		SDK::FVector boxExtent;
+		currTarget->GetActorBounds(true, &origin, &boxExtent, false);
+		SDK::FVector footLocation = origin, headLocation = origin;
+
+		footLocation.Z -= boxExtent.Z * 0.15f;
+		headLocation.Z += boxExtent.Z * 0.15f;
+	
+		SDK::FVector2D footPos{};
+		SDK::FVector2D headPos{};
+		if (!CheatVariables::MyController->ProjectWorldLocationToScreen(footLocation, &footPos, false))//, false))
+			continue;
+		if (!CheatVariables::MyController->ProjectWorldLocationToScreen(headLocation, &headPos, false))//, false))
+			continue;
+
+		if (CheatMenuVariables::PlayersSnapline) {
+			ImGui::GetBackgroundDrawList()->AddLine(ImVec2(System::ScreenSize.x / 2, 0), ImVec2(footPos.X, footPos.Y), ImColor(255,0,0));
+		}
+	}
 
 	if (currentTime - CheatVariables::LastTick > 5)
 	{

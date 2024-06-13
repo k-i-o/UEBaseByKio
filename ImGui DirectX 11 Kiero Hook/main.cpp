@@ -36,7 +36,6 @@ static void EnableHooks() {
 	//{
 	//	MH_EnableHook(reinterpret_cast<LPVOID*>(Offsets::Health__TakeDamage_Offset));
 	//}
-
 }
 
 static void InitImGui()
@@ -48,24 +47,90 @@ static void InitImGui()
 	ImGui_ImplDX11_Init(pDevice, pContext);
 }
 
-static void InitVars() {
+static bool InitVars() {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x03);
 	std::cout << "\n*******************************************************************************" << std::endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
 	std::cout << R"(  
-     __  __     __     ______     ______     ______     _____     ______	
-    /\ \/ /    /\ \   /\  __ \   /\  ___\   /\  __ \   /\  __-.  /\  ___\	
+     __  __     __     ______     ______     ______     _____     ______    
+    /\ \/ /    /\ \   /\  __ \   /\  ___\   /\  __ \   /\  __-.  /\  ___\    
     \ \  _'-.  \ \ \  \ \ \/\ \  \ \ \____  \ \ \/\ \  \ \ \/\ \ \ \  __\   
-     \ \_\ \_\  \ \_\  \ \_____\  \ \_____\  \ \_____\  \ \____-  \ \_____\	
+     \ \_\ \_\  \ \_\  \ \_____\  \ \_____\  \ \_____\  \ \____-  \ \_____\    
       \/_/\/_/   \/_/   \/_____/   \/_____/   \/_____/   \/____/   \/_____/
-	)" << std::endl;
+    )" << std::endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x03);
 	std::cout << "\n*******************************************************************************\n" << std::endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x0F);
 
 	// GET WORLD AND ENGINE
+	CheatVariables::World = SDK::UWorld::GetWorld();
+	if (Utils::IsBadPoint(CheatVariables::World)) {
+		std::cerr << "Error: World not found" << std::endl;
+		return false;
+	}
+	std::cout << "World address: " << CheatVariables::World << std::endl;
 
+	CheatVariables::Engine = SDK::UEngine::GetEngine();
+	if (Utils::IsBadPoint(CheatVariables::Engine)) {
+		std::cerr << "Error: Engine not found" << std::endl;
+		return false;
+	}
+	std::cout << "Engine address: " << CheatVariables::Engine << std::endl;
+
+	// Init PlayerController
+	if (Utils::IsBadPoint(CheatVariables::World->OwningGameInstance)) {
+		std::cerr << "Error: OwningGameInstance not found" << std::endl;
+		return false;
+	}
+	if (Utils::IsBadPoint(CheatVariables::World->OwningGameInstance->LocalPlayers[0])) {
+		std::cerr << "Error: LocalPlayers[0] not found" << std::endl;
+		return false;
+	}
+	CheatVariables::MyController = CheatVariables::World->OwningGameInstance->LocalPlayers[0]->PlayerController;
+	if (Utils::IsBadPoint(CheatVariables::MyController)) {
+		std::cerr << "Error: MyController not found" << std::endl;
+		return false;
+	}
+	std::cout << "PlayerController address: " << CheatVariables::MyController << std::endl;
+
+	// Init PlayerArray
+	if (Utils::IsBadPoint(CheatVariables::World->GameState)) {
+		std::cerr << "Error: GameState not found" << std::endl;
+		return false;
+	}
+	CheatVariables::PlayerArray = CheatVariables::World->GameState->PlayerArray;
+	if (!CheatVariables::PlayerArray) {
+		std::cerr << "Error: PlayerArray not found" << std::endl;
+		return false;
+	}
+
+	if (CheatVariables::PlayerArray.Num() > 0) {
+		std::cout << "PlayerArray found and not empty" << std::endl;
+	}
+	else {
+		std::cout << "PlayerArray found, but empty" << std::endl;
+	}
+
+	for (int i = 0; i < CheatVariables::PlayerArray.Num(); ++i) {
+		if (Utils::IsBadPoint(CheatVariables::PlayerArray[i])) {
+			std::cerr << "Error: PlayerArray[" << i << "] not found" << std::endl;
+		}
+		else {
+			std::cout << "PlayerArray[" << i << "] address: " << CheatVariables::PlayerArray[i] << std::endl;
+		}
+	}
+
+	// Init Pawn
+	CheatVariables::MyPawn = CheatVariables::MyController->AcknowledgedPawn;
+	if (CheatVariables::MyPawn == nullptr) {
+		std::cerr << "Error: MyPawn not found" << std::endl;
+		return false;
+	}
+	std::cout << "MyPawn address: " << CheatVariables::MyPawn << std::endl;
+
+	return true;
 }
+
 
 static void HandleInputs() {
 	if (GetAsyncKeyState(KEYS::SHOWMENU_KEY) & 1)
@@ -95,6 +160,49 @@ static LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
 		return true;
 
 	return CallWindowProcA(oWndProc, hWnd, uMsg, wParam, lParam);
+}
+
+static bool UpdateSDK() {
+
+	// GET WORLD AND ENGINE
+	CheatVariables::World = SDK::UWorld::GetWorld();
+	if (Utils::IsBadPoint(CheatVariables::World)) {
+		return false;
+	}
+
+	CheatVariables::Engine = SDK::UEngine::GetEngine();
+	if (Utils::IsBadPoint(CheatVariables::Engine)) {
+		return false;
+	}
+
+	// Init PlayerController
+	if (Utils::IsBadPoint(CheatVariables::World->OwningGameInstance)) {
+		return false;
+	}
+	if (Utils::IsBadPoint(CheatVariables::World->OwningGameInstance->LocalPlayers[0])) {
+		return false;
+	}
+	CheatVariables::MyController = CheatVariables::World->OwningGameInstance->LocalPlayers[0]->PlayerController;
+	if (Utils::IsBadPoint(CheatVariables::MyController)) {
+		return false;
+	}
+
+	// Init PlayerArray
+	if (Utils::IsBadPoint(CheatVariables::World->GameState)) {
+		return false;
+	}
+	CheatVariables::PlayerArray = CheatVariables::World->GameState->PlayerArray;
+	if (!CheatVariables::PlayerArray) {
+		return false;
+	}
+
+	// Init Pawn
+	CheatVariables::MyPawn = CheatVariables::MyController->AcknowledgedPawn;
+	if (CheatVariables::MyPawn == nullptr) {
+		return false;
+	}
+
+	return true;
 }
 
 static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
@@ -148,6 +256,10 @@ static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 			Utils::DrawOutlinedText(gameFont, ImVec2(System::ScreenCenter.x, 5), 13.0f, CheatVariables::RainbowColor, true, "[ %.1f FPS ]", ImGui::GetIO().Framerate);
 		}
 	#pragma endregion
+
+	if (UpdateSDK()) {
+		Utils::FetchObjects();
+	}
 
 	#pragma region CHEATS
 
@@ -239,6 +351,7 @@ static void Setup()
 
 	// secondary threads
 	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Rainbow, NULL, NULL, NULL);
+	//CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Utils::FetchObjects, NULL, NULL, NULL);
 }
 
 static DWORD WINAPI MainThread(LPVOID lpReserved)
