@@ -18,25 +18,6 @@
 namespace SDK::Params
 {
 
-// Function OnlineSubsystemUtils.EndTurnCallbackProxy.EndTurn
-// 0x0038 (0x0038 - 0x0000)
-struct EndTurnCallbackProxy_EndTurn final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 MatchID;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class ITurnBasedMatchInterface> TurnBasedMatchInterface;                           // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	class UEndTurnCallbackProxy*                  ReturnValue;                                       // 0x0030(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(EndTurnCallbackProxy_EndTurn) == 0x000008, "Wrong alignment on EndTurnCallbackProxy_EndTurn");
-static_assert(sizeof(EndTurnCallbackProxy_EndTurn) == 0x000038, "Wrong size on EndTurnCallbackProxy_EndTurn");
-static_assert(offsetof(EndTurnCallbackProxy_EndTurn, WorldContextObject) == 0x000000, "Member 'EndTurnCallbackProxy_EndTurn::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(EndTurnCallbackProxy_EndTurn, PlayerController) == 0x000008, "Member 'EndTurnCallbackProxy_EndTurn::PlayerController' has a wrong offset!");
-static_assert(offsetof(EndTurnCallbackProxy_EndTurn, MatchID) == 0x000010, "Member 'EndTurnCallbackProxy_EndTurn::MatchID' has a wrong offset!");
-static_assert(offsetof(EndTurnCallbackProxy_EndTurn, TurnBasedMatchInterface) == 0x000020, "Member 'EndTurnCallbackProxy_EndTurn::TurnBasedMatchInterface' has a wrong offset!");
-static_assert(offsetof(EndTurnCallbackProxy_EndTurn, ReturnValue) == 0x000030, "Member 'EndTurnCallbackProxy_EndTurn::ReturnValue' has a wrong offset!");
-
 // Function OnlineSubsystemUtils.AchievementBlueprintLibrary.GetCachedAchievementDescription
 // 0x0070 (0x0070 - 0x0000)
 struct AchievementBlueprintLibrary_GetCachedAchievementDescription final
@@ -46,12 +27,12 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   AchievementID;                                     // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFoundID;                                          // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FE5[0x7];                                      // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DC1[0x7];                                      // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class FText                                   Title;                                             // 0x0020(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
 	class FText                                   LockedDescription;                                 // 0x0038(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
 	class FText                                   UnlockedDescription;                               // 0x0050(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
 	bool                                          bHidden;                                           // 0x0068(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FE6[0x7];                                      // 0x0069(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DC2[0x7];                                      // 0x0069(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AchievementBlueprintLibrary_GetCachedAchievementDescription) == 0x000008, "Wrong alignment on AchievementBlueprintLibrary_GetCachedAchievementDescription");
 static_assert(sizeof(AchievementBlueprintLibrary_GetCachedAchievementDescription) == 0x000070, "Wrong size on AchievementBlueprintLibrary_GetCachedAchievementDescription");
@@ -73,7 +54,7 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   AchievementID;                                     // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFoundID;                                          // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FE7[0x3];                                      // 0x0019(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DC3[0x3];                                      // 0x0019(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         Progress;                                          // 0x001C(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(AchievementBlueprintLibrary_GetCachedAchievementProgress) == 0x000008, "Wrong alignment on AchievementBlueprintLibrary_GetCachedAchievementProgress");
@@ -159,7 +140,7 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         PublicConnections;                                 // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bUseLAN;                                           // 0x0014(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FEC[0x3];                                      // 0x0015(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DCE[0x3];                                      // 0x0015(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	class UCreateSessionCallbackProxy*            ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(CreateSessionCallbackProxy_CreateSession) == 0x000008, "Wrong alignment on CreateSessionCallbackProxy_CreateSession");
@@ -196,7 +177,7 @@ public:
 	class FString                                 MatchID;                                           // 0x0020(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EMPMatchOutcome                               LocalPlayerOutcome;                                // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EMPMatchOutcome                               OtherPlayersOutcome;                               // 0x0031(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FEF[0x6];                                      // 0x0032(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DD1[0x6];                                      // 0x0032(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	class UEndMatchCallbackProxy*                 ReturnValue;                                       // 0x0038(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(EndMatchCallbackProxy_EndMatch) == 0x000008, "Wrong alignment on EndMatchCallbackProxy_EndMatch");
@@ -209,6 +190,25 @@ static_assert(offsetof(EndMatchCallbackProxy_EndMatch, LocalPlayerOutcome) == 0x
 static_assert(offsetof(EndMatchCallbackProxy_EndMatch, OtherPlayersOutcome) == 0x000031, "Member 'EndMatchCallbackProxy_EndMatch::OtherPlayersOutcome' has a wrong offset!");
 static_assert(offsetof(EndMatchCallbackProxy_EndMatch, ReturnValue) == 0x000038, "Member 'EndMatchCallbackProxy_EndMatch::ReturnValue' has a wrong offset!");
 
+// Function OnlineSubsystemUtils.EndTurnCallbackProxy.EndTurn
+// 0x0038 (0x0038 - 0x0000)
+struct EndTurnCallbackProxy_EndTurn final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 MatchID;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class ITurnBasedMatchInterface> TurnBasedMatchInterface;                           // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	class UEndTurnCallbackProxy*                  ReturnValue;                                       // 0x0030(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(EndTurnCallbackProxy_EndTurn) == 0x000008, "Wrong alignment on EndTurnCallbackProxy_EndTurn");
+static_assert(sizeof(EndTurnCallbackProxy_EndTurn) == 0x000038, "Wrong size on EndTurnCallbackProxy_EndTurn");
+static_assert(offsetof(EndTurnCallbackProxy_EndTurn, WorldContextObject) == 0x000000, "Member 'EndTurnCallbackProxy_EndTurn::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(EndTurnCallbackProxy_EndTurn, PlayerController) == 0x000008, "Member 'EndTurnCallbackProxy_EndTurn::PlayerController' has a wrong offset!");
+static_assert(offsetof(EndTurnCallbackProxy_EndTurn, MatchID) == 0x000010, "Member 'EndTurnCallbackProxy_EndTurn::MatchID' has a wrong offset!");
+static_assert(offsetof(EndTurnCallbackProxy_EndTurn, TurnBasedMatchInterface) == 0x000020, "Member 'EndTurnCallbackProxy_EndTurn::TurnBasedMatchInterface' has a wrong offset!");
+static_assert(offsetof(EndTurnCallbackProxy_EndTurn, ReturnValue) == 0x000030, "Member 'EndTurnCallbackProxy_EndTurn::ReturnValue' has a wrong offset!");
+
 // Function OnlineSubsystemUtils.FindSessionsCallbackProxy.FindSessions
 // 0x0020 (0x0020 - 0x0000)
 struct FindSessionsCallbackProxy_FindSessions final
@@ -218,7 +218,7 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         MaxResults;                                        // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bUseLAN;                                           // 0x0014(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FF1[0x3];                                      // 0x0015(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DD4[0x3];                                      // 0x0015(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	class UFindSessionsCallbackProxy*             ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FindSessionsCallbackProxy_FindSessions) == 0x000008, "Wrong alignment on FindSessionsCallbackProxy_FindSessions");
@@ -236,7 +236,7 @@ struct FindSessionsCallbackProxy_GetCurrentPlayers final
 public:
 	struct FBlueprintSessionResult                Result;                                            // 0x0000(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	int32                                         ReturnValue;                                       // 0x0108(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FF2[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DD5[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FindSessionsCallbackProxy_GetCurrentPlayers) == 0x000008, "Wrong alignment on FindSessionsCallbackProxy_GetCurrentPlayers");
 static_assert(sizeof(FindSessionsCallbackProxy_GetCurrentPlayers) == 0x000110, "Wrong size on FindSessionsCallbackProxy_GetCurrentPlayers");
@@ -250,7 +250,7 @@ struct FindSessionsCallbackProxy_GetMaxPlayers final
 public:
 	struct FBlueprintSessionResult                Result;                                            // 0x0000(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	int32                                         ReturnValue;                                       // 0x0108(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FF3[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DD6[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FindSessionsCallbackProxy_GetMaxPlayers) == 0x000008, "Wrong alignment on FindSessionsCallbackProxy_GetMaxPlayers");
 static_assert(sizeof(FindSessionsCallbackProxy_GetMaxPlayers) == 0x000110, "Wrong size on FindSessionsCallbackProxy_GetMaxPlayers");
@@ -264,7 +264,7 @@ struct FindSessionsCallbackProxy_GetPingInMs final
 public:
 	struct FBlueprintSessionResult                Result;                                            // 0x0000(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	int32                                         ReturnValue;                                       // 0x0108(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FF4[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DD7[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FindSessionsCallbackProxy_GetPingInMs) == 0x000008, "Wrong alignment on FindSessionsCallbackProxy_GetPingInMs");
 static_assert(sizeof(FindSessionsCallbackProxy_GetPingInMs) == 0x000110, "Wrong size on FindSessionsCallbackProxy_GetPingInMs");
@@ -296,7 +296,7 @@ public:
 	int32                                         MaxPlayers;                                        // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         PlayerGroup;                                       // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ShowExistingMatches;                               // 0x002C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FF6[0x3];                                      // 0x002D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DD9[0x3];                                      // 0x002D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	class UFindTurnBasedMatchCallbackProxy*       ReturnValue;                                       // 0x0030(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FindTurnBasedMatchCallbackProxy_FindTurnBasedMatch) == 0x000008, "Wrong alignment on FindTurnBasedMatchCallbackProxy_FindTurnBasedMatch");
@@ -452,7 +452,7 @@ public:
 	class FName                                   StatName;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         StatValue;                                         // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0014(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1004[0x3];                                     // 0x0015(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DE1[0x3];                                      // 0x0015(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(LeaderboardBlueprintLibrary_WriteLeaderboardInteger) == 0x000008, "Wrong alignment on LeaderboardBlueprintLibrary_WriteLeaderboardInteger");
 static_assert(sizeof(LeaderboardBlueprintLibrary_WriteLeaderboardInteger) == 0x000018, "Wrong size on LeaderboardBlueprintLibrary_WriteLeaderboardInteger");
@@ -544,12 +544,12 @@ static_assert(offsetof(PartyBeaconClient_ClientSendReservationUpdates, NumRemain
 struct PartyBeaconClient_ServerAddOrUpdateReservationRequest final
 {
 public:
-	class FString                                 SessionID;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SessionId;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FPartyReservation                      Reservation;                                       // 0x0010(0x0050)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(PartyBeaconClient_ServerAddOrUpdateReservationRequest) == 0x000008, "Wrong alignment on PartyBeaconClient_ServerAddOrUpdateReservationRequest");
 static_assert(sizeof(PartyBeaconClient_ServerAddOrUpdateReservationRequest) == 0x000060, "Wrong size on PartyBeaconClient_ServerAddOrUpdateReservationRequest");
-static_assert(offsetof(PartyBeaconClient_ServerAddOrUpdateReservationRequest, SessionID) == 0x000000, "Member 'PartyBeaconClient_ServerAddOrUpdateReservationRequest::SessionID' has a wrong offset!");
+static_assert(offsetof(PartyBeaconClient_ServerAddOrUpdateReservationRequest, SessionId) == 0x000000, "Member 'PartyBeaconClient_ServerAddOrUpdateReservationRequest::SessionId' has a wrong offset!");
 static_assert(offsetof(PartyBeaconClient_ServerAddOrUpdateReservationRequest, Reservation) == 0x000010, "Member 'PartyBeaconClient_ServerAddOrUpdateReservationRequest::Reservation' has a wrong offset!");
 
 // Function OnlineSubsystemUtils.PartyBeaconClient.ServerCancelReservationRequest
@@ -568,12 +568,12 @@ static_assert(offsetof(PartyBeaconClient_ServerCancelReservationRequest, PartyLe
 struct PartyBeaconClient_ServerRemoveMemberFromReservationRequest final
 {
 public:
-	class FString                                 SessionID;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SessionId;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FPartyReservation                      ReservationUpdate;                                 // 0x0010(0x0050)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(PartyBeaconClient_ServerRemoveMemberFromReservationRequest) == 0x000008, "Wrong alignment on PartyBeaconClient_ServerRemoveMemberFromReservationRequest");
 static_assert(sizeof(PartyBeaconClient_ServerRemoveMemberFromReservationRequest) == 0x000060, "Wrong size on PartyBeaconClient_ServerRemoveMemberFromReservationRequest");
-static_assert(offsetof(PartyBeaconClient_ServerRemoveMemberFromReservationRequest, SessionID) == 0x000000, "Member 'PartyBeaconClient_ServerRemoveMemberFromReservationRequest::SessionID' has a wrong offset!");
+static_assert(offsetof(PartyBeaconClient_ServerRemoveMemberFromReservationRequest, SessionId) == 0x000000, "Member 'PartyBeaconClient_ServerRemoveMemberFromReservationRequest::SessionId' has a wrong offset!");
 static_assert(offsetof(PartyBeaconClient_ServerRemoveMemberFromReservationRequest, ReservationUpdate) == 0x000010, "Member 'PartyBeaconClient_ServerRemoveMemberFromReservationRequest::ReservationUpdate' has a wrong offset!");
 
 // Function OnlineSubsystemUtils.PartyBeaconClient.ServerReservationRequest
@@ -581,12 +581,12 @@ static_assert(offsetof(PartyBeaconClient_ServerRemoveMemberFromReservationReques
 struct PartyBeaconClient_ServerReservationRequest final
 {
 public:
-	class FString                                 SessionID;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SessionId;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FPartyReservation                      Reservation;                                       // 0x0010(0x0050)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(PartyBeaconClient_ServerReservationRequest) == 0x000008, "Wrong alignment on PartyBeaconClient_ServerReservationRequest");
 static_assert(sizeof(PartyBeaconClient_ServerReservationRequest) == 0x000060, "Wrong size on PartyBeaconClient_ServerReservationRequest");
-static_assert(offsetof(PartyBeaconClient_ServerReservationRequest, SessionID) == 0x000000, "Member 'PartyBeaconClient_ServerReservationRequest::SessionID' has a wrong offset!");
+static_assert(offsetof(PartyBeaconClient_ServerReservationRequest, SessionId) == 0x000000, "Member 'PartyBeaconClient_ServerReservationRequest::SessionId' has a wrong offset!");
 static_assert(offsetof(PartyBeaconClient_ServerReservationRequest, Reservation) == 0x000010, "Member 'PartyBeaconClient_ServerReservationRequest::Reservation' has a wrong offset!");
 
 // Function OnlineSubsystemUtils.PartyBeaconClient.ServerUpdateReservationRequest
@@ -594,12 +594,12 @@ static_assert(offsetof(PartyBeaconClient_ServerReservationRequest, Reservation) 
 struct PartyBeaconClient_ServerUpdateReservationRequest final
 {
 public:
-	class FString                                 SessionID;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SessionId;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FPartyReservation                      ReservationUpdate;                                 // 0x0010(0x0050)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(PartyBeaconClient_ServerUpdateReservationRequest) == 0x000008, "Wrong alignment on PartyBeaconClient_ServerUpdateReservationRequest");
 static_assert(sizeof(PartyBeaconClient_ServerUpdateReservationRequest) == 0x000060, "Wrong size on PartyBeaconClient_ServerUpdateReservationRequest");
-static_assert(offsetof(PartyBeaconClient_ServerUpdateReservationRequest, SessionID) == 0x000000, "Member 'PartyBeaconClient_ServerUpdateReservationRequest::SessionID' has a wrong offset!");
+static_assert(offsetof(PartyBeaconClient_ServerUpdateReservationRequest, SessionId) == 0x000000, "Member 'PartyBeaconClient_ServerUpdateReservationRequest::SessionId' has a wrong offset!");
 static_assert(offsetof(PartyBeaconClient_ServerUpdateReservationRequest, ReservationUpdate) == 0x000010, "Member 'PartyBeaconClient_ServerUpdateReservationRequest::ReservationUpdate' has a wrong offset!");
 
 // Function OnlineSubsystemUtils.QuitMatchCallbackProxy.QuitMatch
@@ -611,7 +611,7 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 MatchID;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EMPMatchOutcome                               Outcome;                                           // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_101A[0x3];                                     // 0x0021(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_DF7[0x3];                                      // 0x0021(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         TurnTimeoutInSeconds;                              // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UQuitMatchCallbackProxy*                ReturnValue;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
@@ -688,12 +688,12 @@ static_assert(offsetof(SpectatorBeaconClient_ServerCancelReservationRequest, Spe
 struct SpectatorBeaconClient_ServerReservationRequest final
 {
 public:
-	class FString                                 SessionID;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SessionId;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FSpectatorReservation                  Reservation;                                       // 0x0010(0x0078)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SpectatorBeaconClient_ServerReservationRequest) == 0x000008, "Wrong alignment on SpectatorBeaconClient_ServerReservationRequest");
 static_assert(sizeof(SpectatorBeaconClient_ServerReservationRequest) == 0x000088, "Wrong size on SpectatorBeaconClient_ServerReservationRequest");
-static_assert(offsetof(SpectatorBeaconClient_ServerReservationRequest, SessionID) == 0x000000, "Member 'SpectatorBeaconClient_ServerReservationRequest::SessionID' has a wrong offset!");
+static_assert(offsetof(SpectatorBeaconClient_ServerReservationRequest, SessionId) == 0x000000, "Member 'SpectatorBeaconClient_ServerReservationRequest::SessionId' has a wrong offset!");
 static_assert(offsetof(SpectatorBeaconClient_ServerReservationRequest, Reservation) == 0x000010, "Member 'SpectatorBeaconClient_ServerReservationRequest::Reservation' has a wrong offset!");
 
 // Function OnlineSubsystemUtils.TurnBasedBlueprintLibrary.GetIsMyTurn
@@ -705,7 +705,7 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 MatchID;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIsMyTurn;                                         // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1023[0x7];                                     // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E00[0x7];                                      // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(TurnBasedBlueprintLibrary_GetIsMyTurn) == 0x000008, "Wrong alignment on TurnBasedBlueprintLibrary_GetIsMyTurn");
 static_assert(sizeof(TurnBasedBlueprintLibrary_GetIsMyTurn) == 0x000028, "Wrong size on TurnBasedBlueprintLibrary_GetIsMyTurn");
@@ -723,7 +723,7 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 MatchID;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         PlayerIndex;                                       // 0x0020(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1024[0x4];                                     // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E01[0x4];                                      // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(TurnBasedBlueprintLibrary_GetMyPlayerIndex) == 0x000008, "Wrong alignment on TurnBasedBlueprintLibrary_GetMyPlayerIndex");
 static_assert(sizeof(TurnBasedBlueprintLibrary_GetMyPlayerIndex) == 0x000028, "Wrong size on TurnBasedBlueprintLibrary_GetMyPlayerIndex");
@@ -741,7 +741,7 @@ public:
 	class APlayerController*                      PlayerController;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 MatchID;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         PlayerIndex;                                       // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1025[0x4];                                     // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E02[0x4];                                      // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 PlayerDisplayName;                                 // 0x0028(0x0010)(Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(TurnBasedBlueprintLibrary_GetPlayerDisplayName) == 0x000008, "Wrong alignment on TurnBasedBlueprintLibrary_GetPlayerDisplayName");

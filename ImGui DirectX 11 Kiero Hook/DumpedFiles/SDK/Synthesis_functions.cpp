@@ -390,10 +390,10 @@ void UModularSynthComponent::SetEnableLegato(bool LegatoEnabled)
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // struct FPatchId                         PatchId                                                (ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-// bool                                    BIsEnabled                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bIsEnabled                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UModularSynthComponent::SetEnablePatch(const struct FPatchId& PatchId, const bool BIsEnabled)
+bool UModularSynthComponent::SetEnablePatch(const struct FPatchId& PatchId, const bool bIsEnabled)
 {
 	static class UFunction* Func = nullptr;
 
@@ -403,7 +403,7 @@ bool UModularSynthComponent::SetEnablePatch(const struct FPatchId& PatchId, cons
 	Params::ModularSynthComponent_SetEnablePatch Parms{};
 
 	Parms.PatchId = std::move(PatchId);
-	Parms.BIsEnabled = BIsEnabled;
+	Parms.bIsEnabled = bIsEnabled;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

@@ -17,16 +17,407 @@
 namespace SDK::Params
 {
 
-// Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings
-// 0x0010 (0x0010 - 0x0000)
-struct SubmixEffectSubmixEQPreset_SetSettings final
+// Function AudioMixer.QuartzClockHandle.GetCurrentTimestamp
+// 0x0018 (0x0018 - 0x0000)
+struct QuartzClockHandle_GetCurrentTimestamp final
 {
 public:
-	struct FSubmixEffectSubmixEQSettings          InSettings;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzTransportTimeStamp              ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(SubmixEffectSubmixEQPreset_SetSettings) == 0x000008, "Wrong alignment on SubmixEffectSubmixEQPreset_SetSettings");
-static_assert(sizeof(SubmixEffectSubmixEQPreset_SetSettings) == 0x000010, "Wrong size on SubmixEffectSubmixEQPreset_SetSettings");
-static_assert(offsetof(SubmixEffectSubmixEQPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectSubmixEQPreset_SetSettings::InSettings' has a wrong offset!");
+static_assert(alignof(QuartzClockHandle_GetCurrentTimestamp) == 0x000008, "Wrong alignment on QuartzClockHandle_GetCurrentTimestamp");
+static_assert(sizeof(QuartzClockHandle_GetCurrentTimestamp) == 0x000018, "Wrong size on QuartzClockHandle_GetCurrentTimestamp");
+static_assert(offsetof(QuartzClockHandle_GetCurrentTimestamp, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetCurrentTimestamp::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetCurrentTimestamp, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetCurrentTimestamp::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.GetDurationOfQuantizationTypeInSeconds
+// 0x0018 (0x0018 - 0x0000)
+struct QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EQuartzCommandQuantization                    QuantizationType;                                  // 0x0008(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E13[0x3];                                      // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Multiplier;                                        // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0010(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E14[0x4];                                      // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds) == 0x000008, "Wrong alignment on QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds");
+static_assert(sizeof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds) == 0x000018, "Wrong size on QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds");
+static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, QuantizationType) == 0x000008, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::QuantizationType' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, Multiplier) == 0x00000C, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::Multiplier' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, ReturnValue) == 0x000010, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.GetEstimatedRunTime
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_GetEstimatedRunTime final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E15[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_GetEstimatedRunTime) == 0x000008, "Wrong alignment on QuartzClockHandle_GetEstimatedRunTime");
+static_assert(sizeof(QuartzClockHandle_GetEstimatedRunTime) == 0x000010, "Wrong size on QuartzClockHandle_GetEstimatedRunTime");
+static_assert(offsetof(QuartzClockHandle_GetEstimatedRunTime, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetEstimatedRunTime::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetEstimatedRunTime, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetEstimatedRunTime::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.IsClockRunning
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_IsClockRunning final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E16[0x7];                                      // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_IsClockRunning) == 0x000008, "Wrong alignment on QuartzClockHandle_IsClockRunning");
+static_assert(sizeof(QuartzClockHandle_IsClockRunning) == 0x000010, "Wrong size on QuartzClockHandle_IsClockRunning");
+static_assert(offsetof(QuartzClockHandle_IsClockRunning, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_IsClockRunning::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_IsClockRunning, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_IsClockRunning::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.PauseClock
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_PauseClock final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_PauseClock) == 0x000008, "Wrong alignment on QuartzClockHandle_PauseClock");
+static_assert(sizeof(QuartzClockHandle_PauseClock) == 0x000010, "Wrong size on QuartzClockHandle_PauseClock");
+static_assert(offsetof(QuartzClockHandle_PauseClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_PauseClock::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_PauseClock, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_PauseClock::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.ResetTransport
+// 0x0018 (0x0018 - 0x0000)
+struct QuartzClockHandle_ResetTransport final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> InDelegate;                                        // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_ResetTransport) == 0x000008, "Wrong alignment on QuartzClockHandle_ResetTransport");
+static_assert(sizeof(QuartzClockHandle_ResetTransport) == 0x000018, "Wrong size on QuartzClockHandle_ResetTransport");
+static_assert(offsetof(QuartzClockHandle_ResetTransport, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_ResetTransport::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_ResetTransport, InDelegate) == 0x000008, "Member 'QuartzClockHandle_ResetTransport::InDelegate' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.ResetTransportQuantized
+// 0x0030 (0x0030 - 0x0000)
+struct QuartzClockHandle_ResetTransportQuantized final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzQuantizationBoundary            InQuantizationBoundary;                            // 0x0008(0x000C)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> InDelegate;                                        // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E17[0x4];                                      // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_ResetTransportQuantized) == 0x000008, "Wrong alignment on QuartzClockHandle_ResetTransportQuantized");
+static_assert(sizeof(QuartzClockHandle_ResetTransportQuantized) == 0x000030, "Wrong size on QuartzClockHandle_ResetTransportQuantized");
+static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_ResetTransportQuantized::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, InQuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_ResetTransportQuantized::InQuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, InDelegate) == 0x000014, "Member 'QuartzClockHandle_ResetTransportQuantized::InDelegate' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_ResetTransportQuantized::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.ResumeClock
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_ResumeClock final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_ResumeClock) == 0x000008, "Wrong alignment on QuartzClockHandle_ResumeClock");
+static_assert(sizeof(QuartzClockHandle_ResumeClock) == 0x000010, "Wrong size on QuartzClockHandle_ResumeClock");
+static_assert(offsetof(QuartzClockHandle_ResumeClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_ResumeClock::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_ResumeClock, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_ResumeClock::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.SetBeatsPerMinute
+// 0x0038 (0x0038 - 0x0000)
+struct QuartzClockHandle_SetBeatsPerMinute final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E18[0x4];                                      // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         BeatsPerMinute;                                    // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E19[0x4];                                      // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_SetBeatsPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_SetBeatsPerMinute");
+static_assert(sizeof(QuartzClockHandle_SetBeatsPerMinute) == 0x000038, "Wrong size on QuartzClockHandle_SetBeatsPerMinute");
+static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetBeatsPerMinute::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetBeatsPerMinute::QuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetBeatsPerMinute::Delegate' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetBeatsPerMinute::ClockHandle' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, BeatsPerMinute) == 0x000030, "Member 'QuartzClockHandle_SetBeatsPerMinute::BeatsPerMinute' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.SetMillisecondsPerTick
+// 0x0038 (0x0038 - 0x0000)
+struct QuartzClockHandle_SetMillisecondsPerTick final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1A[0x4];                                      // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MillisecondsPerTick;                               // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1B[0x4];                                      // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_SetMillisecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_SetMillisecondsPerTick");
+static_assert(sizeof(QuartzClockHandle_SetMillisecondsPerTick) == 0x000038, "Wrong size on QuartzClockHandle_SetMillisecondsPerTick");
+static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetMillisecondsPerTick::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetMillisecondsPerTick::QuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetMillisecondsPerTick::Delegate' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetMillisecondsPerTick::ClockHandle' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, MillisecondsPerTick) == 0x000030, "Member 'QuartzClockHandle_SetMillisecondsPerTick::MillisecondsPerTick' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.SetSecondsPerTick
+// 0x0038 (0x0038 - 0x0000)
+struct QuartzClockHandle_SetSecondsPerTick final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1C[0x4];                                      // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SecondsPerTick;                                    // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1D[0x4];                                      // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_SetSecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_SetSecondsPerTick");
+static_assert(sizeof(QuartzClockHandle_SetSecondsPerTick) == 0x000038, "Wrong size on QuartzClockHandle_SetSecondsPerTick");
+static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetSecondsPerTick::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetSecondsPerTick::QuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetSecondsPerTick::Delegate' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetSecondsPerTick::ClockHandle' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, SecondsPerTick) == 0x000030, "Member 'QuartzClockHandle_SetSecondsPerTick::SecondsPerTick' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.SetThirtySecondNotesPerMinute
+// 0x0038 (0x0038 - 0x0000)
+struct QuartzClockHandle_SetThirtySecondNotesPerMinute final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1E[0x4];                                      // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ThirtySecondsNotesPerMinute;                       // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1F[0x4];                                      // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_SetThirtySecondNotesPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_SetThirtySecondNotesPerMinute");
+static_assert(sizeof(QuartzClockHandle_SetThirtySecondNotesPerMinute) == 0x000038, "Wrong size on QuartzClockHandle_SetThirtySecondNotesPerMinute");
+static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::QuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::Delegate' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::ClockHandle' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, ThirtySecondsNotesPerMinute) == 0x000030, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::ThirtySecondsNotesPerMinute' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.SetTicksPerSecond
+// 0x0038 (0x0038 - 0x0000)
+struct QuartzClockHandle_SetTicksPerSecond final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E20[0x4];                                      // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         TicksPerSecond;                                    // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E21[0x4];                                      // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_SetTicksPerSecond) == 0x000008, "Wrong alignment on QuartzClockHandle_SetTicksPerSecond");
+static_assert(sizeof(QuartzClockHandle_SetTicksPerSecond) == 0x000038, "Wrong size on QuartzClockHandle_SetTicksPerSecond");
+static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetTicksPerSecond::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetTicksPerSecond::QuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetTicksPerSecond::Delegate' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetTicksPerSecond::ClockHandle' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, TicksPerSecond) == 0x000030, "Member 'QuartzClockHandle_SetTicksPerSecond::TicksPerSecond' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.StartClock
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_StartClock final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_StartClock) == 0x000008, "Wrong alignment on QuartzClockHandle_StartClock");
+static_assert(sizeof(QuartzClockHandle_StartClock) == 0x000010, "Wrong size on QuartzClockHandle_StartClock");
+static_assert(offsetof(QuartzClockHandle_StartClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_StartClock::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_StartClock, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_StartClock::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.StartOtherClock
+// 0x0030 (0x0030 - 0x0000)
+struct QuartzClockHandle_StartOtherClock final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   OtherClockName;                                    // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuartzQuantizationBoundary            InQuantizationBoundary;                            // 0x0010(0x000C)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> InDelegate;                                        // 0x001C(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E22[0x4];                                      // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_StartOtherClock) == 0x000008, "Wrong alignment on QuartzClockHandle_StartOtherClock");
+static_assert(sizeof(QuartzClockHandle_StartOtherClock) == 0x000030, "Wrong size on QuartzClockHandle_StartOtherClock");
+static_assert(offsetof(QuartzClockHandle_StartOtherClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_StartOtherClock::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_StartOtherClock, OtherClockName) == 0x000008, "Member 'QuartzClockHandle_StartOtherClock::OtherClockName' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_StartOtherClock, InQuantizationBoundary) == 0x000010, "Member 'QuartzClockHandle_StartOtherClock::InQuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_StartOtherClock, InDelegate) == 0x00001C, "Member 'QuartzClockHandle_StartOtherClock::InDelegate' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.StopClock
+// 0x0018 (0x0018 - 0x0000)
+struct QuartzClockHandle_StopClock final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          CancelPendingEvents;                               // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E23[0x7];                                      // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_StopClock) == 0x000008, "Wrong alignment on QuartzClockHandle_StopClock");
+static_assert(sizeof(QuartzClockHandle_StopClock) == 0x000018, "Wrong size on QuartzClockHandle_StopClock");
+static_assert(offsetof(QuartzClockHandle_StopClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_StopClock::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_StopClock, CancelPendingEvents) == 0x000008, "Member 'QuartzClockHandle_StopClock::CancelPendingEvents' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_StopClock, ClockHandle) == 0x000010, "Member 'QuartzClockHandle_StopClock::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.SubscribeToAllQuantizationEvents
+// 0x0020 (0x0020 - 0x0000)
+struct QuartzClockHandle_SubscribeToAllQuantizationEvents final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(class FName ClockName, EQuartzCommandQuantization QuantizationType, int32 NumBars, int32 Beat, float BeatFraction)> OnQuantizationEvent;                               // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_SubscribeToAllQuantizationEvents) == 0x000008, "Wrong alignment on QuartzClockHandle_SubscribeToAllQuantizationEvents");
+static_assert(sizeof(QuartzClockHandle_SubscribeToAllQuantizationEvents) == 0x000020, "Wrong size on QuartzClockHandle_SubscribeToAllQuantizationEvents");
+static_assert(offsetof(QuartzClockHandle_SubscribeToAllQuantizationEvents, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SubscribeToAllQuantizationEvents::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SubscribeToAllQuantizationEvents, OnQuantizationEvent) == 0x000008, "Member 'QuartzClockHandle_SubscribeToAllQuantizationEvents::OnQuantizationEvent' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SubscribeToAllQuantizationEvents, ClockHandle) == 0x000018, "Member 'QuartzClockHandle_SubscribeToAllQuantizationEvents::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.SubscribeToQuantizationEvent
+// 0x0028 (0x0028 - 0x0000)
+struct QuartzClockHandle_SubscribeToQuantizationEvent final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EQuartzCommandQuantization                    InQuantizationBoundary;                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E24[0x3];                                      // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	TDelegate<void(class FName ClockName, EQuartzCommandQuantization QuantizationType, int32 NumBars, int32 Beat, float BeatFraction)> OnQuantizationEvent;                               // 0x000C(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E25[0x4];                                      // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_SubscribeToQuantizationEvent) == 0x000008, "Wrong alignment on QuartzClockHandle_SubscribeToQuantizationEvent");
+static_assert(sizeof(QuartzClockHandle_SubscribeToQuantizationEvent) == 0x000028, "Wrong size on QuartzClockHandle_SubscribeToQuantizationEvent");
+static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, InQuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::InQuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, OnQuantizationEvent) == 0x00000C, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::OnQuantizationEvent' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, ClockHandle) == 0x000020, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.UnsubscribeFromAllTimeDivisions
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_UnsubscribeFromAllTimeDivisions final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions) == 0x000008, "Wrong alignment on QuartzClockHandle_UnsubscribeFromAllTimeDivisions");
+static_assert(sizeof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions) == 0x000010, "Wrong size on QuartzClockHandle_UnsubscribeFromAllTimeDivisions");
+static_assert(offsetof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_UnsubscribeFromAllTimeDivisions::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_UnsubscribeFromAllTimeDivisions::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.UnsubscribeFromTimeDivision
+// 0x0018 (0x0018 - 0x0000)
+struct QuartzClockHandle_UnsubscribeFromTimeDivision final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EQuartzCommandQuantization                    InQuantizationBoundary;                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E26[0x7];                                      // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(QuartzClockHandle_UnsubscribeFromTimeDivision) == 0x000008, "Wrong alignment on QuartzClockHandle_UnsubscribeFromTimeDivision");
+static_assert(sizeof(QuartzClockHandle_UnsubscribeFromTimeDivision) == 0x000018, "Wrong size on QuartzClockHandle_UnsubscribeFromTimeDivision");
+static_assert(offsetof(QuartzClockHandle_UnsubscribeFromTimeDivision, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_UnsubscribeFromTimeDivision::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_UnsubscribeFromTimeDivision, InQuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_UnsubscribeFromTimeDivision::InQuantizationBoundary' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_UnsubscribeFromTimeDivision, ClockHandle) == 0x000010, "Member 'QuartzClockHandle_UnsubscribeFromTimeDivision::ClockHandle' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.GetBeatsPerMinute
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_GetBeatsPerMinute final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E27[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_GetBeatsPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_GetBeatsPerMinute");
+static_assert(sizeof(QuartzClockHandle_GetBeatsPerMinute) == 0x000010, "Wrong size on QuartzClockHandle_GetBeatsPerMinute");
+static_assert(offsetof(QuartzClockHandle_GetBeatsPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetBeatsPerMinute::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetBeatsPerMinute, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetBeatsPerMinute::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.GetMillisecondsPerTick
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_GetMillisecondsPerTick final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E28[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_GetMillisecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_GetMillisecondsPerTick");
+static_assert(sizeof(QuartzClockHandle_GetMillisecondsPerTick) == 0x000010, "Wrong size on QuartzClockHandle_GetMillisecondsPerTick");
+static_assert(offsetof(QuartzClockHandle_GetMillisecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetMillisecondsPerTick::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetMillisecondsPerTick, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetMillisecondsPerTick::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.GetSecondsPerTick
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_GetSecondsPerTick final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E29[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_GetSecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_GetSecondsPerTick");
+static_assert(sizeof(QuartzClockHandle_GetSecondsPerTick) == 0x000010, "Wrong size on QuartzClockHandle_GetSecondsPerTick");
+static_assert(offsetof(QuartzClockHandle_GetSecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetSecondsPerTick::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetSecondsPerTick, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetSecondsPerTick::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.GetThirtySecondNotesPerMinute
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_GetThirtySecondNotesPerMinute final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E2A[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_GetThirtySecondNotesPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_GetThirtySecondNotesPerMinute");
+static_assert(sizeof(QuartzClockHandle_GetThirtySecondNotesPerMinute) == 0x000010, "Wrong size on QuartzClockHandle_GetThirtySecondNotesPerMinute");
+static_assert(offsetof(QuartzClockHandle_GetThirtySecondNotesPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetThirtySecondNotesPerMinute::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetThirtySecondNotesPerMinute, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetThirtySecondNotesPerMinute::ReturnValue' has a wrong offset!");
+
+// Function AudioMixer.QuartzClockHandle.GetTicksPerSecond
+// 0x0010 (0x0010 - 0x0000)
+struct QuartzClockHandle_GetTicksPerSecond final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E2B[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(QuartzClockHandle_GetTicksPerSecond) == 0x000008, "Wrong alignment on QuartzClockHandle_GetTicksPerSecond");
+static_assert(sizeof(QuartzClockHandle_GetTicksPerSecond) == 0x000010, "Wrong size on QuartzClockHandle_GetTicksPerSecond");
+static_assert(offsetof(QuartzClockHandle_GetTicksPerSecond, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetTicksPerSecond::WorldContextObject' has a wrong offset!");
+static_assert(offsetof(QuartzClockHandle_GetTicksPerSecond, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetTicksPerSecond::ReturnValue' has a wrong offset!");
 
 // Function AudioMixer.SynthComponent.SetLowPassFilterEnabled
 // 0x0001 (0x0001 - 0x0000)
@@ -68,7 +459,7 @@ struct SynthComponent_SetSubmixSend final
 public:
 	class USoundSubmixBase*                       Submix;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         SendLevel;                                         // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1037[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E32[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(SynthComponent_SetSubmixSend) == 0x000008, "Wrong alignment on SynthComponent_SetSubmixSend");
 static_assert(sizeof(SynthComponent_SetSubmixSend) == 0x000010, "Wrong size on SynthComponent_SetSubmixSend");
@@ -96,39 +487,6 @@ public:
 static_assert(alignof(SynthComponent_IsPlaying) == 0x000001, "Wrong alignment on SynthComponent_IsPlaying");
 static_assert(sizeof(SynthComponent_IsPlaying) == 0x000001, "Wrong size on SynthComponent_IsPlaying");
 static_assert(offsetof(SynthComponent_IsPlaying, ReturnValue) == 0x000000, "Member 'SynthComponent_IsPlaying::ReturnValue' has a wrong offset!");
-
-// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetAudioBus
-// 0x0008 (0x0008 - 0x0000)
-struct SubmixEffectDynamicsProcessorPreset_SetAudioBus final
-{
-public:
-	class UAudioBus*                              AudioBus;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SubmixEffectDynamicsProcessorPreset_SetAudioBus) == 0x000008, "Wrong alignment on SubmixEffectDynamicsProcessorPreset_SetAudioBus");
-static_assert(sizeof(SubmixEffectDynamicsProcessorPreset_SetAudioBus) == 0x000008, "Wrong size on SubmixEffectDynamicsProcessorPreset_SetAudioBus");
-static_assert(offsetof(SubmixEffectDynamicsProcessorPreset_SetAudioBus, AudioBus) == 0x000000, "Member 'SubmixEffectDynamicsProcessorPreset_SetAudioBus::AudioBus' has a wrong offset!");
-
-// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetExternalSubmix
-// 0x0008 (0x0008 - 0x0000)
-struct SubmixEffectDynamicsProcessorPreset_SetExternalSubmix final
-{
-public:
-	class USoundSubmix*                           Submix;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SubmixEffectDynamicsProcessorPreset_SetExternalSubmix) == 0x000008, "Wrong alignment on SubmixEffectDynamicsProcessorPreset_SetExternalSubmix");
-static_assert(sizeof(SubmixEffectDynamicsProcessorPreset_SetExternalSubmix) == 0x000008, "Wrong size on SubmixEffectDynamicsProcessorPreset_SetExternalSubmix");
-static_assert(offsetof(SubmixEffectDynamicsProcessorPreset_SetExternalSubmix, Submix) == 0x000000, "Member 'SubmixEffectDynamicsProcessorPreset_SetExternalSubmix::Submix' has a wrong offset!");
-
-// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings
-// 0x0060 (0x0060 - 0x0000)
-struct SubmixEffectDynamicsProcessorPreset_SetSettings final
-{
-public:
-	struct FSubmixEffectDynamicsProcessorSettings Param_Settings;                                    // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SubmixEffectDynamicsProcessorPreset_SetSettings) == 0x000008, "Wrong alignment on SubmixEffectDynamicsProcessorPreset_SetSettings");
-static_assert(sizeof(SubmixEffectDynamicsProcessorPreset_SetSettings) == 0x000060, "Wrong size on SubmixEffectDynamicsProcessorPreset_SetSettings");
-static_assert(offsetof(SubmixEffectDynamicsProcessorPreset_SetSettings, Param_Settings) == 0x000000, "Member 'SubmixEffectDynamicsProcessorPreset_SetSettings::Param_Settings' has a wrong offset!");
 
 // Function AudioMixer.AudioMixerBlueprintLibrary.AddMasterSubmixEffect
 // 0x0010 (0x0010 - 0x0000)
@@ -167,7 +525,7 @@ public:
 	class USoundSubmix*                           SoundSubmix;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundEffectSubmixPreset*               SubmixEffectPreset;                                // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ReturnValue;                                       // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_103A[0x4];                                     // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E34[0x4];                                      // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_AddSubmixEffect) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_AddSubmixEffect");
 static_assert(sizeof(AudioMixerBlueprintLibrary_AddSubmixEffect) == 0x000020, "Wrong size on AudioMixerBlueprintLibrary_AddSubmixEffect");
@@ -195,7 +553,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundSubmix*                           SoundSubmix;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         FadeTimeSec;                                       // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_103B[0x4];                                     // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E35[0x4];                                      // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_ClearSubmixEffectChainOverride) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_ClearSubmixEffectChainOverride");
 static_assert(sizeof(AudioMixerBlueprintLibrary_ClearSubmixEffectChainOverride) == 0x000018, "Wrong size on AudioMixerBlueprintLibrary_ClearSubmixEffectChainOverride");
@@ -241,7 +599,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundEffectSourcePresetChain*          PresetChain;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ReturnValue;                                       // 0x0010(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_103C[0x4];                                     // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E36[0x4];                                      // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_GetNumberOfEntriesInSourceEffectChain) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_GetNumberOfEntriesInSourceEffectChain");
 static_assert(sizeof(AudioMixerBlueprintLibrary_GetNumberOfEntriesInSourceEffectChain) == 0x000018, "Wrong size on AudioMixerBlueprintLibrary_GetNumberOfEntriesInSourceEffectChain");
@@ -274,7 +632,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UAudioBus*                              AudioBus;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_103D[0x7];                                     // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E37[0x7];                                      // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_IsAudioBusActive) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_IsAudioBusActive");
 static_assert(sizeof(AudioMixerBlueprintLibrary_IsAudioBusActive) == 0x000018, "Wrong size on AudioMixerBlueprintLibrary_IsAudioBusActive");
@@ -292,7 +650,7 @@ public:
 	float                                         InMaximumFrequency;                                // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InAttackTimeMsec;                                  // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InReleaseTimeMsec;                                 // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_103E[0x4];                                     // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E38[0x4];                                      // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FSoundSubmixSpectralAnalysisBandSettings> ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_MakeFullSpectrumSpectralAnalysisBandSettings) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_MakeFullSpectrumSpectralAnalysisBandSettings");
@@ -311,11 +669,11 @@ struct AudioMixerBlueprintLibrary_MakeMusicalSpectralAnalysisBandSettings final
 public:
 	int32                                         InNumSemitones;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EMusicalNoteName                              InStartingMusicalNote;                             // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_103F[0x3];                                     // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E39[0x3];                                      // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         InStartingOctave;                                  // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InAttackTimeMsec;                                  // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InReleaseTimeMsec;                                 // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1040[0x4];                                     // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E3A[0x4];                                      // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FSoundSubmixSpectralAnalysisBandSettings> ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_MakeMusicalSpectralAnalysisBandSettings) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_MakeMusicalSpectralAnalysisBandSettings");
@@ -333,7 +691,7 @@ struct AudioMixerBlueprintLibrary_MakePresetSpectralAnalysisBandSettings final
 {
 public:
 	EAudioSpectrumBandPresetType                  InBandPresetType;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1041[0x3];                                     // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E3B[0x3];                                      // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         InNumBands;                                        // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InAttackTimeMsec;                                  // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InReleaseTimeMsec;                                 // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -405,7 +763,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundEffectSourcePresetChain*          PresetChain;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         EntryIndex;                                        // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1042[0x4];                                     // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E3C[0x4];                                      // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_RemoveSourceEffectFromPresetChain) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_RemoveSourceEffectFromPresetChain");
 static_assert(sizeof(AudioMixerBlueprintLibrary_RemoveSourceEffectFromPresetChain) == 0x000018, "Wrong size on AudioMixerBlueprintLibrary_RemoveSourceEffectFromPresetChain");
@@ -436,7 +794,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundSubmix*                           SoundSubmix;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SubmixChainIndex;                                  // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1043[0x4];                                     // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E3D[0x4];                                      // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_RemoveSubmixEffectAtIndex) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_RemoveSubmixEffectAtIndex");
 static_assert(sizeof(AudioMixerBlueprintLibrary_RemoveSubmixEffectAtIndex) == 0x000018, "Wrong size on AudioMixerBlueprintLibrary_RemoveSubmixEffectAtIndex");
@@ -467,7 +825,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundSubmix*                           SoundSubmix;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SubmixChainIndex;                                  // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1044[0x4];                                     // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E3E[0x4];                                      // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_RemoveSubmixEffectPresetAtIndex) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_RemoveSubmixEffectPresetAtIndex");
 static_assert(sizeof(AudioMixerBlueprintLibrary_RemoveSubmixEffectPresetAtIndex) == 0x000018, "Wrong size on AudioMixerBlueprintLibrary_RemoveSubmixEffectPresetAtIndex");
@@ -483,7 +841,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundSubmix*                           InSoundSubmix;                                     // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SubmixChainIndex;                                  // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1045[0x4];                                     // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E3F[0x4];                                      // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class USoundEffectSubmixPreset*               SubmixEffectPreset;                                // 0x0018(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_ReplaceSoundEffectSubmix) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_ReplaceSoundEffectSubmix");
@@ -501,7 +859,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundSubmix*                           InSoundSubmix;                                     // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SubmixChainIndex;                                  // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1046[0x4];                                     // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E40[0x4];                                      // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class USoundEffectSubmixPreset*               SubmixEffectPreset;                                // 0x0018(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_ReplaceSubmixEffect) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_ReplaceSubmixEffect");
@@ -533,7 +891,7 @@ public:
 	class USoundEffectSourcePresetChain*          PresetChain;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         EntryIndex;                                        // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bBypassed;                                         // 0x0014(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1047[0x3];                                     // 0x0015(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E41[0x3];                                      // 0x0015(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_SetBypassSourceEffectChainEntry) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_SetBypassSourceEffectChainEntry");
 static_assert(sizeof(AudioMixerBlueprintLibrary_SetBypassSourceEffectChainEntry) == 0x000018, "Wrong size on AudioMixerBlueprintLibrary_SetBypassSourceEffectChainEntry");
@@ -551,7 +909,7 @@ public:
 	class USoundSubmix*                           SoundSubmix;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class USoundEffectSubmixPreset*>       SubmixEffectPresetChain;                           // 0x0010(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
 	float                                         FadeTimeSec;                                       // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1048[0x4];                                     // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E42[0x4];                                      // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_SetSubmixEffectChainOverride) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_SetSubmixEffectChainOverride");
 static_assert(sizeof(AudioMixerBlueprintLibrary_SetSubmixEffectChainOverride) == 0x000028, "Wrong size on AudioMixerBlueprintLibrary_SetSubmixEffectChainOverride");
@@ -570,10 +928,10 @@ public:
 	EFFTSize                                      FFTSize;                                           // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EFFTPeakInterpolationMethod                   InterpolationMethod;                               // 0x0011(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EFFTWindowType                                WindowType;                                        // 0x0012(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1049[0x1];                                     // 0x0013(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E43[0x1];                                      // 0x0013(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         HopSize;                                           // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAudioSpectrumType                            SpectrumType;                                      // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_104A[0x7];                                     // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E44[0x7];                                      // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_StartAnalyzingOutput) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_StartAnalyzingOutput");
 static_assert(sizeof(AudioMixerBlueprintLibrary_StartAnalyzingOutput) == 0x000020, "Wrong size on AudioMixerBlueprintLibrary_StartAnalyzingOutput");
@@ -605,7 +963,7 @@ struct AudioMixerBlueprintLibrary_StartRecordingOutput final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ExpectedDuration;                                  // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_104B[0x4];                                     // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E45[0x4];                                      // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class USoundSubmix*                           SubmixToRecord;                                    // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(AudioMixerBlueprintLibrary_StartRecordingOutput) == 0x000008, "Wrong alignment on AudioMixerBlueprintLibrary_StartRecordingOutput");
@@ -647,7 +1005,7 @@ struct AudioMixerBlueprintLibrary_StopRecordingOutput final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAudioRecordingExportType                     ExportType;                                        // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_104C[0x7];                                     // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E46[0x7];                                      // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 Param_Name;                                        // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 Path;                                              // 0x0020(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class USoundSubmix*                           SubmixToRecord;                                    // 0x0030(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -677,407 +1035,49 @@ static_assert(sizeof(AudioMixerBlueprintLibrary_TrimAudioCache) == 0x000008, "Wr
 static_assert(offsetof(AudioMixerBlueprintLibrary_TrimAudioCache, InMegabytesToFree) == 0x000000, "Member 'AudioMixerBlueprintLibrary_TrimAudioCache::InMegabytesToFree' has a wrong offset!");
 static_assert(offsetof(AudioMixerBlueprintLibrary_TrimAudioCache, ReturnValue) == 0x000004, "Member 'AudioMixerBlueprintLibrary_TrimAudioCache::ReturnValue' has a wrong offset!");
 
-// Function AudioMixer.QuartzClockHandle.GetCurrentTimestamp
-// 0x0018 (0x0018 - 0x0000)
-struct QuartzClockHandle_GetCurrentTimestamp final
+// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetAudioBus
+// 0x0008 (0x0008 - 0x0000)
+struct SubmixEffectDynamicsProcessorPreset_SetAudioBus final
 {
 public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzTransportTimeStamp              ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+	class UAudioBus*                              AudioBus;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(QuartzClockHandle_GetCurrentTimestamp) == 0x000008, "Wrong alignment on QuartzClockHandle_GetCurrentTimestamp");
-static_assert(sizeof(QuartzClockHandle_GetCurrentTimestamp) == 0x000018, "Wrong size on QuartzClockHandle_GetCurrentTimestamp");
-static_assert(offsetof(QuartzClockHandle_GetCurrentTimestamp, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetCurrentTimestamp::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetCurrentTimestamp, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetCurrentTimestamp::ReturnValue' has a wrong offset!");
+static_assert(alignof(SubmixEffectDynamicsProcessorPreset_SetAudioBus) == 0x000008, "Wrong alignment on SubmixEffectDynamicsProcessorPreset_SetAudioBus");
+static_assert(sizeof(SubmixEffectDynamicsProcessorPreset_SetAudioBus) == 0x000008, "Wrong size on SubmixEffectDynamicsProcessorPreset_SetAudioBus");
+static_assert(offsetof(SubmixEffectDynamicsProcessorPreset_SetAudioBus, AudioBus) == 0x000000, "Member 'SubmixEffectDynamicsProcessorPreset_SetAudioBus::AudioBus' has a wrong offset!");
 
-// Function AudioMixer.QuartzClockHandle.GetDurationOfQuantizationTypeInSeconds
-// 0x0018 (0x0018 - 0x0000)
-struct QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds final
+// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetExternalSubmix
+// 0x0008 (0x0008 - 0x0000)
+struct SubmixEffectDynamicsProcessorPreset_SetExternalSubmix final
 {
 public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EQuartzCommandQuantization                    QuantizationType;                                  // 0x0008(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_104F[0x3];                                     // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Multiplier;                                        // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0010(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1050[0x4];                                     // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class USoundSubmix*                           Submix;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds) == 0x000008, "Wrong alignment on QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds");
-static_assert(sizeof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds) == 0x000018, "Wrong size on QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds");
-static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, QuantizationType) == 0x000008, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::QuantizationType' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, Multiplier) == 0x00000C, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::Multiplier' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds, ReturnValue) == 0x000010, "Member 'QuartzClockHandle_GetDurationOfQuantizationTypeInSeconds::ReturnValue' has a wrong offset!");
+static_assert(alignof(SubmixEffectDynamicsProcessorPreset_SetExternalSubmix) == 0x000008, "Wrong alignment on SubmixEffectDynamicsProcessorPreset_SetExternalSubmix");
+static_assert(sizeof(SubmixEffectDynamicsProcessorPreset_SetExternalSubmix) == 0x000008, "Wrong size on SubmixEffectDynamicsProcessorPreset_SetExternalSubmix");
+static_assert(offsetof(SubmixEffectDynamicsProcessorPreset_SetExternalSubmix, Submix) == 0x000000, "Member 'SubmixEffectDynamicsProcessorPreset_SetExternalSubmix::Submix' has a wrong offset!");
 
-// Function AudioMixer.QuartzClockHandle.GetEstimatedRunTime
+// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings
+// 0x0060 (0x0060 - 0x0000)
+struct SubmixEffectDynamicsProcessorPreset_SetSettings final
+{
+public:
+	struct FSubmixEffectDynamicsProcessorSettings Param_Settings;                                    // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectDynamicsProcessorPreset_SetSettings) == 0x000008, "Wrong alignment on SubmixEffectDynamicsProcessorPreset_SetSettings");
+static_assert(sizeof(SubmixEffectDynamicsProcessorPreset_SetSettings) == 0x000060, "Wrong size on SubmixEffectDynamicsProcessorPreset_SetSettings");
+static_assert(offsetof(SubmixEffectDynamicsProcessorPreset_SetSettings, Param_Settings) == 0x000000, "Member 'SubmixEffectDynamicsProcessorPreset_SetSettings::Param_Settings' has a wrong offset!");
+
+// Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings
 // 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_GetEstimatedRunTime final
+struct SubmixEffectSubmixEQPreset_SetSettings final
 {
 public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1051[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSubmixEffectSubmixEQSettings          InSettings;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(QuartzClockHandle_GetEstimatedRunTime) == 0x000008, "Wrong alignment on QuartzClockHandle_GetEstimatedRunTime");
-static_assert(sizeof(QuartzClockHandle_GetEstimatedRunTime) == 0x000010, "Wrong size on QuartzClockHandle_GetEstimatedRunTime");
-static_assert(offsetof(QuartzClockHandle_GetEstimatedRunTime, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetEstimatedRunTime::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetEstimatedRunTime, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetEstimatedRunTime::ReturnValue' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.IsClockRunning
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_IsClockRunning final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1052[0x7];                                     // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_IsClockRunning) == 0x000008, "Wrong alignment on QuartzClockHandle_IsClockRunning");
-static_assert(sizeof(QuartzClockHandle_IsClockRunning) == 0x000010, "Wrong size on QuartzClockHandle_IsClockRunning");
-static_assert(offsetof(QuartzClockHandle_IsClockRunning, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_IsClockRunning::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_IsClockRunning, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_IsClockRunning::ReturnValue' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.PauseClock
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_PauseClock final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_PauseClock) == 0x000008, "Wrong alignment on QuartzClockHandle_PauseClock");
-static_assert(sizeof(QuartzClockHandle_PauseClock) == 0x000010, "Wrong size on QuartzClockHandle_PauseClock");
-static_assert(offsetof(QuartzClockHandle_PauseClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_PauseClock::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_PauseClock, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_PauseClock::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.ResetTransport
-// 0x0018 (0x0018 - 0x0000)
-struct QuartzClockHandle_ResetTransport final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> InDelegate;                                        // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_ResetTransport) == 0x000008, "Wrong alignment on QuartzClockHandle_ResetTransport");
-static_assert(sizeof(QuartzClockHandle_ResetTransport) == 0x000018, "Wrong size on QuartzClockHandle_ResetTransport");
-static_assert(offsetof(QuartzClockHandle_ResetTransport, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_ResetTransport::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_ResetTransport, InDelegate) == 0x000008, "Member 'QuartzClockHandle_ResetTransport::InDelegate' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.ResetTransportQuantized
-// 0x0030 (0x0030 - 0x0000)
-struct QuartzClockHandle_ResetTransportQuantized final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzQuantizationBoundary            InQuantizationBoundary;                            // 0x0008(0x000C)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> InDelegate;                                        // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1053[0x4];                                     // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_ResetTransportQuantized) == 0x000008, "Wrong alignment on QuartzClockHandle_ResetTransportQuantized");
-static_assert(sizeof(QuartzClockHandle_ResetTransportQuantized) == 0x000030, "Wrong size on QuartzClockHandle_ResetTransportQuantized");
-static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_ResetTransportQuantized::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, InQuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_ResetTransportQuantized::InQuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, InDelegate) == 0x000014, "Member 'QuartzClockHandle_ResetTransportQuantized::InDelegate' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_ResetTransportQuantized, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_ResetTransportQuantized::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.ResumeClock
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_ResumeClock final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_ResumeClock) == 0x000008, "Wrong alignment on QuartzClockHandle_ResumeClock");
-static_assert(sizeof(QuartzClockHandle_ResumeClock) == 0x000010, "Wrong size on QuartzClockHandle_ResumeClock");
-static_assert(offsetof(QuartzClockHandle_ResumeClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_ResumeClock::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_ResumeClock, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_ResumeClock::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.SetBeatsPerMinute
-// 0x0038 (0x0038 - 0x0000)
-struct QuartzClockHandle_SetBeatsPerMinute final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1054[0x4];                                     // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         BeatsPerMinute;                                    // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1055[0x4];                                     // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_SetBeatsPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_SetBeatsPerMinute");
-static_assert(sizeof(QuartzClockHandle_SetBeatsPerMinute) == 0x000038, "Wrong size on QuartzClockHandle_SetBeatsPerMinute");
-static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetBeatsPerMinute::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetBeatsPerMinute::QuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetBeatsPerMinute::Delegate' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetBeatsPerMinute::ClockHandle' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetBeatsPerMinute, BeatsPerMinute) == 0x000030, "Member 'QuartzClockHandle_SetBeatsPerMinute::BeatsPerMinute' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.SetMillisecondsPerTick
-// 0x0038 (0x0038 - 0x0000)
-struct QuartzClockHandle_SetMillisecondsPerTick final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1056[0x4];                                     // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MillisecondsPerTick;                               // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1057[0x4];                                     // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_SetMillisecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_SetMillisecondsPerTick");
-static_assert(sizeof(QuartzClockHandle_SetMillisecondsPerTick) == 0x000038, "Wrong size on QuartzClockHandle_SetMillisecondsPerTick");
-static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetMillisecondsPerTick::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetMillisecondsPerTick::QuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetMillisecondsPerTick::Delegate' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetMillisecondsPerTick::ClockHandle' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetMillisecondsPerTick, MillisecondsPerTick) == 0x000030, "Member 'QuartzClockHandle_SetMillisecondsPerTick::MillisecondsPerTick' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.SetSecondsPerTick
-// 0x0038 (0x0038 - 0x0000)
-struct QuartzClockHandle_SetSecondsPerTick final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1058[0x4];                                     // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SecondsPerTick;                                    // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1059[0x4];                                     // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_SetSecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_SetSecondsPerTick");
-static_assert(sizeof(QuartzClockHandle_SetSecondsPerTick) == 0x000038, "Wrong size on QuartzClockHandle_SetSecondsPerTick");
-static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetSecondsPerTick::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetSecondsPerTick::QuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetSecondsPerTick::Delegate' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetSecondsPerTick::ClockHandle' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetSecondsPerTick, SecondsPerTick) == 0x000030, "Member 'QuartzClockHandle_SetSecondsPerTick::SecondsPerTick' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.SetThirtySecondNotesPerMinute
-// 0x0038 (0x0038 - 0x0000)
-struct QuartzClockHandle_SetThirtySecondNotesPerMinute final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	uint8                                         Pad_105A[0x4];                                     // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ThirtySecondsNotesPerMinute;                       // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_105B[0x4];                                     // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_SetThirtySecondNotesPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_SetThirtySecondNotesPerMinute");
-static_assert(sizeof(QuartzClockHandle_SetThirtySecondNotesPerMinute) == 0x000038, "Wrong size on QuartzClockHandle_SetThirtySecondNotesPerMinute");
-static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::QuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::Delegate' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::ClockHandle' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetThirtySecondNotesPerMinute, ThirtySecondsNotesPerMinute) == 0x000030, "Member 'QuartzClockHandle_SetThirtySecondNotesPerMinute::ThirtySecondsNotesPerMinute' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.SetTicksPerSecond
-// 0x0038 (0x0038 - 0x0000)
-struct QuartzClockHandle_SetTicksPerSecond final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzQuantizationBoundary            QuantizationBoundary;                              // 0x0008(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> Delegate;                                          // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	uint8                                         Pad_105C[0x4];                                     // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TicksPerSecond;                                    // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_105D[0x4];                                     // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_SetTicksPerSecond) == 0x000008, "Wrong alignment on QuartzClockHandle_SetTicksPerSecond");
-static_assert(sizeof(QuartzClockHandle_SetTicksPerSecond) == 0x000038, "Wrong size on QuartzClockHandle_SetTicksPerSecond");
-static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SetTicksPerSecond::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, QuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SetTicksPerSecond::QuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, Delegate) == 0x000014, "Member 'QuartzClockHandle_SetTicksPerSecond::Delegate' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, ClockHandle) == 0x000028, "Member 'QuartzClockHandle_SetTicksPerSecond::ClockHandle' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SetTicksPerSecond, TicksPerSecond) == 0x000030, "Member 'QuartzClockHandle_SetTicksPerSecond::TicksPerSecond' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.StartClock
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_StartClock final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_StartClock) == 0x000008, "Wrong alignment on QuartzClockHandle_StartClock");
-static_assert(sizeof(QuartzClockHandle_StartClock) == 0x000010, "Wrong size on QuartzClockHandle_StartClock");
-static_assert(offsetof(QuartzClockHandle_StartClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_StartClock::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_StartClock, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_StartClock::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.StartOtherClock
-// 0x0030 (0x0030 - 0x0000)
-struct QuartzClockHandle_StartOtherClock final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   OtherClockName;                                    // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuartzQuantizationBoundary            InQuantizationBoundary;                            // 0x0010(0x000C)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(EQuartzCommandDelegateSubType EventType, class FName Name)> InDelegate;                                        // 0x001C(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_105E[0x4];                                     // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_StartOtherClock) == 0x000008, "Wrong alignment on QuartzClockHandle_StartOtherClock");
-static_assert(sizeof(QuartzClockHandle_StartOtherClock) == 0x000030, "Wrong size on QuartzClockHandle_StartOtherClock");
-static_assert(offsetof(QuartzClockHandle_StartOtherClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_StartOtherClock::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_StartOtherClock, OtherClockName) == 0x000008, "Member 'QuartzClockHandle_StartOtherClock::OtherClockName' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_StartOtherClock, InQuantizationBoundary) == 0x000010, "Member 'QuartzClockHandle_StartOtherClock::InQuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_StartOtherClock, InDelegate) == 0x00001C, "Member 'QuartzClockHandle_StartOtherClock::InDelegate' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.StopClock
-// 0x0018 (0x0018 - 0x0000)
-struct QuartzClockHandle_StopClock final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          CancelPendingEvents;                               // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_105F[0x7];                                     // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_StopClock) == 0x000008, "Wrong alignment on QuartzClockHandle_StopClock");
-static_assert(sizeof(QuartzClockHandle_StopClock) == 0x000018, "Wrong size on QuartzClockHandle_StopClock");
-static_assert(offsetof(QuartzClockHandle_StopClock, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_StopClock::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_StopClock, CancelPendingEvents) == 0x000008, "Member 'QuartzClockHandle_StopClock::CancelPendingEvents' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_StopClock, ClockHandle) == 0x000010, "Member 'QuartzClockHandle_StopClock::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.SubscribeToAllQuantizationEvents
-// 0x0020 (0x0020 - 0x0000)
-struct QuartzClockHandle_SubscribeToAllQuantizationEvents final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(class FName ClockName, EQuartzCommandQuantization QuantizationType, int32 NumBars, int32 Beat, float BeatFraction)> OnQuantizationEvent;                               // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_SubscribeToAllQuantizationEvents) == 0x000008, "Wrong alignment on QuartzClockHandle_SubscribeToAllQuantizationEvents");
-static_assert(sizeof(QuartzClockHandle_SubscribeToAllQuantizationEvents) == 0x000020, "Wrong size on QuartzClockHandle_SubscribeToAllQuantizationEvents");
-static_assert(offsetof(QuartzClockHandle_SubscribeToAllQuantizationEvents, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SubscribeToAllQuantizationEvents::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SubscribeToAllQuantizationEvents, OnQuantizationEvent) == 0x000008, "Member 'QuartzClockHandle_SubscribeToAllQuantizationEvents::OnQuantizationEvent' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SubscribeToAllQuantizationEvents, ClockHandle) == 0x000018, "Member 'QuartzClockHandle_SubscribeToAllQuantizationEvents::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.SubscribeToQuantizationEvent
-// 0x0028 (0x0028 - 0x0000)
-struct QuartzClockHandle_SubscribeToQuantizationEvent final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EQuartzCommandQuantization                    InQuantizationBoundary;                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1060[0x3];                                     // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(class FName ClockName, EQuartzCommandQuantization QuantizationType, int32 NumBars, int32 Beat, float BeatFraction)> OnQuantizationEvent;                               // 0x000C(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1061[0x4];                                     // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_SubscribeToQuantizationEvent) == 0x000008, "Wrong alignment on QuartzClockHandle_SubscribeToQuantizationEvent");
-static_assert(sizeof(QuartzClockHandle_SubscribeToQuantizationEvent) == 0x000028, "Wrong size on QuartzClockHandle_SubscribeToQuantizationEvent");
-static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, InQuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::InQuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, OnQuantizationEvent) == 0x00000C, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::OnQuantizationEvent' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_SubscribeToQuantizationEvent, ClockHandle) == 0x000020, "Member 'QuartzClockHandle_SubscribeToQuantizationEvent::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.UnsubscribeFromAllTimeDivisions
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_UnsubscribeFromAllTimeDivisions final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions) == 0x000008, "Wrong alignment on QuartzClockHandle_UnsubscribeFromAllTimeDivisions");
-static_assert(sizeof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions) == 0x000010, "Wrong size on QuartzClockHandle_UnsubscribeFromAllTimeDivisions");
-static_assert(offsetof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_UnsubscribeFromAllTimeDivisions::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_UnsubscribeFromAllTimeDivisions, ClockHandle) == 0x000008, "Member 'QuartzClockHandle_UnsubscribeFromAllTimeDivisions::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.UnsubscribeFromTimeDivision
-// 0x0018 (0x0018 - 0x0000)
-struct QuartzClockHandle_UnsubscribeFromTimeDivision final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EQuartzCommandQuantization                    InQuantizationBoundary;                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1062[0x7];                                     // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UQuartzClockHandle*                     ClockHandle;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(QuartzClockHandle_UnsubscribeFromTimeDivision) == 0x000008, "Wrong alignment on QuartzClockHandle_UnsubscribeFromTimeDivision");
-static_assert(sizeof(QuartzClockHandle_UnsubscribeFromTimeDivision) == 0x000018, "Wrong size on QuartzClockHandle_UnsubscribeFromTimeDivision");
-static_assert(offsetof(QuartzClockHandle_UnsubscribeFromTimeDivision, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_UnsubscribeFromTimeDivision::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_UnsubscribeFromTimeDivision, InQuantizationBoundary) == 0x000008, "Member 'QuartzClockHandle_UnsubscribeFromTimeDivision::InQuantizationBoundary' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_UnsubscribeFromTimeDivision, ClockHandle) == 0x000010, "Member 'QuartzClockHandle_UnsubscribeFromTimeDivision::ClockHandle' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.GetBeatsPerMinute
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_GetBeatsPerMinute final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1063[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_GetBeatsPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_GetBeatsPerMinute");
-static_assert(sizeof(QuartzClockHandle_GetBeatsPerMinute) == 0x000010, "Wrong size on QuartzClockHandle_GetBeatsPerMinute");
-static_assert(offsetof(QuartzClockHandle_GetBeatsPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetBeatsPerMinute::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetBeatsPerMinute, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetBeatsPerMinute::ReturnValue' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.GetMillisecondsPerTick
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_GetMillisecondsPerTick final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1064[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_GetMillisecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_GetMillisecondsPerTick");
-static_assert(sizeof(QuartzClockHandle_GetMillisecondsPerTick) == 0x000010, "Wrong size on QuartzClockHandle_GetMillisecondsPerTick");
-static_assert(offsetof(QuartzClockHandle_GetMillisecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetMillisecondsPerTick::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetMillisecondsPerTick, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetMillisecondsPerTick::ReturnValue' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.GetSecondsPerTick
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_GetSecondsPerTick final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1065[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_GetSecondsPerTick) == 0x000008, "Wrong alignment on QuartzClockHandle_GetSecondsPerTick");
-static_assert(sizeof(QuartzClockHandle_GetSecondsPerTick) == 0x000010, "Wrong size on QuartzClockHandle_GetSecondsPerTick");
-static_assert(offsetof(QuartzClockHandle_GetSecondsPerTick, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetSecondsPerTick::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetSecondsPerTick, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetSecondsPerTick::ReturnValue' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.GetThirtySecondNotesPerMinute
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_GetThirtySecondNotesPerMinute final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1066[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_GetThirtySecondNotesPerMinute) == 0x000008, "Wrong alignment on QuartzClockHandle_GetThirtySecondNotesPerMinute");
-static_assert(sizeof(QuartzClockHandle_GetThirtySecondNotesPerMinute) == 0x000010, "Wrong size on QuartzClockHandle_GetThirtySecondNotesPerMinute");
-static_assert(offsetof(QuartzClockHandle_GetThirtySecondNotesPerMinute, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetThirtySecondNotesPerMinute::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetThirtySecondNotesPerMinute, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetThirtySecondNotesPerMinute::ReturnValue' has a wrong offset!");
-
-// Function AudioMixer.QuartzClockHandle.GetTicksPerSecond
-// 0x0010 (0x0010 - 0x0000)
-struct QuartzClockHandle_GetTicksPerSecond final
-{
-public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1067[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(QuartzClockHandle_GetTicksPerSecond) == 0x000008, "Wrong alignment on QuartzClockHandle_GetTicksPerSecond");
-static_assert(sizeof(QuartzClockHandle_GetTicksPerSecond) == 0x000010, "Wrong size on QuartzClockHandle_GetTicksPerSecond");
-static_assert(offsetof(QuartzClockHandle_GetTicksPerSecond, WorldContextObject) == 0x000000, "Member 'QuartzClockHandle_GetTicksPerSecond::WorldContextObject' has a wrong offset!");
-static_assert(offsetof(QuartzClockHandle_GetTicksPerSecond, ReturnValue) == 0x000008, "Member 'QuartzClockHandle_GetTicksPerSecond::ReturnValue' has a wrong offset!");
+static_assert(alignof(SubmixEffectSubmixEQPreset_SetSettings) == 0x000008, "Wrong alignment on SubmixEffectSubmixEQPreset_SetSettings");
+static_assert(sizeof(SubmixEffectSubmixEQPreset_SetSettings) == 0x000010, "Wrong size on SubmixEffectSubmixEQPreset_SetSettings");
+static_assert(offsetof(SubmixEffectSubmixEQPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectSubmixEQPreset_SetSettings::InSettings' has a wrong offset!");
 
 // Function AudioMixer.SubmixEffectReverbPreset.SetSettings
 // 0x0040 (0x0040 - 0x0000)
@@ -1115,7 +1115,7 @@ public:
 	struct FQuartzClockSettings                   InSettings;                                        // 0x0010(0x0020)(Parm, NativeAccessSpecifierPublic)
 	bool                                          bOverrideSettingsIfClockExists;                    // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bUseAudioEngineClockManager;                       // 0x0031(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_106A[0x6];                                     // 0x0032(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E4B[0x6];                                      // 0x0032(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	class UQuartzClockHandle*                     ReturnValue;                                       // 0x0038(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(QuartzSubsystem_CreateNewClock) == 0x000008, "Wrong alignment on QuartzSubsystem_CreateNewClock");
@@ -1161,7 +1161,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   ClockName;                                         // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_106B[0x7];                                     // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E4C[0x7];                                      // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_DoesClockExist) == 0x000008, "Wrong alignment on QuartzSubsystem_DoesClockExist");
 static_assert(sizeof(QuartzSubsystem_DoesClockExist) == 0x000018, "Wrong size on QuartzSubsystem_DoesClockExist");
@@ -1225,10 +1225,10 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   ClockName;                                         // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EQuartzCommandQuantization                    QuantizationType;                                  // 0x0010(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_106C[0x3];                                     // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E4D[0x3];                                      // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         Multiplier;                                        // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_106D[0x4];                                     // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E4E[0x4];                                      // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetDurationOfQuantizationTypeInSeconds) == 0x000008, "Wrong alignment on QuartzSubsystem_GetDurationOfQuantizationTypeInSeconds");
 static_assert(sizeof(QuartzSubsystem_GetDurationOfQuantizationTypeInSeconds) == 0x000020, "Wrong size on QuartzSubsystem_GetDurationOfQuantizationTypeInSeconds");
@@ -1246,7 +1246,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   InClockName;                                       // 0x0008(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0010(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_106E[0x4];                                     // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E4F[0x4];                                      // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetEstimatedClockRunTime) == 0x000008, "Wrong alignment on QuartzSubsystem_GetEstimatedClockRunTime");
 static_assert(sizeof(QuartzSubsystem_GetEstimatedClockRunTime) == 0x000018, "Wrong size on QuartzSubsystem_GetEstimatedClockRunTime");
@@ -1261,7 +1261,7 @@ struct QuartzSubsystem_GetGameThreadToAudioRenderThreadAverageLatency final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_106F[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E50[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetGameThreadToAudioRenderThreadAverageLatency) == 0x000008, "Wrong alignment on QuartzSubsystem_GetGameThreadToAudioRenderThreadAverageLatency");
 static_assert(sizeof(QuartzSubsystem_GetGameThreadToAudioRenderThreadAverageLatency) == 0x000010, "Wrong size on QuartzSubsystem_GetGameThreadToAudioRenderThreadAverageLatency");
@@ -1275,7 +1275,7 @@ struct QuartzSubsystem_GetGameThreadToAudioRenderThreadMaxLatency final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1070[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E51[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetGameThreadToAudioRenderThreadMaxLatency) == 0x000008, "Wrong alignment on QuartzSubsystem_GetGameThreadToAudioRenderThreadMaxLatency");
 static_assert(sizeof(QuartzSubsystem_GetGameThreadToAudioRenderThreadMaxLatency) == 0x000010, "Wrong size on QuartzSubsystem_GetGameThreadToAudioRenderThreadMaxLatency");
@@ -1289,7 +1289,7 @@ struct QuartzSubsystem_GetGameThreadToAudioRenderThreadMinLatency final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1071[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E52[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetGameThreadToAudioRenderThreadMinLatency) == 0x000008, "Wrong alignment on QuartzSubsystem_GetGameThreadToAudioRenderThreadMinLatency");
 static_assert(sizeof(QuartzSubsystem_GetGameThreadToAudioRenderThreadMinLatency) == 0x000010, "Wrong size on QuartzSubsystem_GetGameThreadToAudioRenderThreadMinLatency");
@@ -1318,7 +1318,7 @@ struct QuartzSubsystem_GetRoundTripAverageLatency final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1072[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E53[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetRoundTripAverageLatency) == 0x000008, "Wrong alignment on QuartzSubsystem_GetRoundTripAverageLatency");
 static_assert(sizeof(QuartzSubsystem_GetRoundTripAverageLatency) == 0x000010, "Wrong size on QuartzSubsystem_GetRoundTripAverageLatency");
@@ -1332,7 +1332,7 @@ struct QuartzSubsystem_GetRoundTripMaxLatency final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1073[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E54[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetRoundTripMaxLatency) == 0x000008, "Wrong alignment on QuartzSubsystem_GetRoundTripMaxLatency");
 static_assert(sizeof(QuartzSubsystem_GetRoundTripMaxLatency) == 0x000010, "Wrong size on QuartzSubsystem_GetRoundTripMaxLatency");
@@ -1346,7 +1346,7 @@ struct QuartzSubsystem_GetRoundTripMinLatency final
 public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1074[0x4];                                     // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E55[0x4];                                      // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_GetRoundTripMinLatency) == 0x000008, "Wrong alignment on QuartzSubsystem_GetRoundTripMinLatency");
 static_assert(sizeof(QuartzSubsystem_GetRoundTripMinLatency) == 0x000010, "Wrong size on QuartzSubsystem_GetRoundTripMinLatency");
@@ -1361,7 +1361,7 @@ public:
 	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   ClockName;                                         // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1075[0x7];                                     // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E56[0x7];                                      // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(QuartzSubsystem_IsClockRunning) == 0x000008, "Wrong alignment on QuartzSubsystem_IsClockRunning");
 static_assert(sizeof(QuartzSubsystem_IsClockRunning) == 0x000018, "Wrong size on QuartzSubsystem_IsClockRunning");

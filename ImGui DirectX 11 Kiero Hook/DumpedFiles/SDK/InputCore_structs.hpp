@@ -14,6 +14,30 @@
 namespace SDK
 {
 
+// Enum InputCore.ETouchType
+// NumValues: 0x0008
+enum class ETouchType : uint8
+{
+	Began                                    = 0,
+	Moved                                    = 1,
+	Stationary                               = 2,
+	ForceChanged                             = 3,
+	FirstMove                                = 4,
+	Ended                                    = 5,
+	NumTypes                                 = 6,
+	ETouchType_MAX                           = 7,
+};
+
+// Enum InputCore.EConsoleForGamepadLabels
+// NumValues: 0x0004
+enum class EConsoleForGamepadLabels : uint8
+{
+	None                                     = 0,
+	XBoxOne                                  = 1,
+	PS4                                      = 2,
+	EConsoleForGamepadLabels_MAX             = 3,
+};
+
 // Enum InputCore.ETouchIndex
 // NumValues: 0x000D
 enum class ETouchIndex : uint8
@@ -58,37 +82,13 @@ enum class EControllerHand : uint8
 	EControllerHand_MAX                      = 18,
 };
 
-// Enum InputCore.ETouchType
-// NumValues: 0x0008
-enum class ETouchType : uint8
-{
-	Began                                    = 0,
-	Moved                                    = 1,
-	Stationary                               = 2,
-	ForceChanged                             = 3,
-	FirstMove                                = 4,
-	Ended                                    = 5,
-	NumTypes                                 = 6,
-	ETouchType_MAX                           = 7,
-};
-
-// Enum InputCore.EConsoleForGamepadLabels
-// NumValues: 0x0004
-enum class EConsoleForGamepadLabels : uint8
-{
-	None                                     = 0,
-	XBoxOne                                  = 1,
-	PS4                                      = 2,
-	EConsoleForGamepadLabels_MAX             = 3,
-};
-
 // ScriptStruct InputCore.Key
 // 0x0018 (0x0018 - 0x0000)
 struct alignas(0x08) FKey final
 {
 public:
 	class FName                                   KeyName;                                           // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1972[0x10];                                    // 0x0008(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_160D[0x10];                                    // 0x0008(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FKey) == 0x000008, "Wrong alignment on FKey");
 static_assert(sizeof(FKey) == 0x000018, "Wrong size on FKey");

@@ -17,40 +17,6 @@
 namespace SDK
 {
 
-// Function OnlineSubsystemUtils.EndTurnCallbackProxy.EndTurn
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           MatchID                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TScriptInterface<class ITurnBasedMatchInterface>TurnBasedMatchInterface                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
-// class UEndTurnCallbackProxy*            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UEndTurnCallbackProxy* UEndTurnCallbackProxy::EndTurn(class UObject* WorldContextObject, class APlayerController* PlayerController, const class FString& MatchID, TScriptInterface<class ITurnBasedMatchInterface> TurnBasedMatchInterface)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("EndTurnCallbackProxy", "EndTurn");
-
-	Params::EndTurnCallbackProxy_EndTurn Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.PlayerController = PlayerController;
-	Parms.MatchID = std::move(MatchID);
-	Parms.TurnBasedMatchInterface = TurnBasedMatchInterface;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function OnlineSubsystemUtils.AchievementBlueprintLibrary.GetCachedAchievementDescription
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -353,6 +319,40 @@ class UEndMatchCallbackProxy* UEndMatchCallbackProxy::EndMatch(class UObject* Wo
 	Parms.MatchID = std::move(MatchID);
 	Parms.LocalPlayerOutcome = LocalPlayerOutcome;
 	Parms.OtherPlayersOutcome = OtherPlayersOutcome;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OnlineSubsystemUtils.EndTurnCallbackProxy.EndTurn
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           MatchID                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TScriptInterface<class ITurnBasedMatchInterface>TurnBasedMatchInterface                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, NativeAccessSpecifierPublic)
+// class UEndTurnCallbackProxy*            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UEndTurnCallbackProxy* UEndTurnCallbackProxy::EndTurn(class UObject* WorldContextObject, class APlayerController* PlayerController, const class FString& MatchID, TScriptInterface<class ITurnBasedMatchInterface> TurnBasedMatchInterface)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("EndTurnCallbackProxy", "EndTurn");
+
+	Params::EndTurnCallbackProxy_EndTurn Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.PlayerController = PlayerController;
+	Parms.MatchID = std::move(MatchID);
+	Parms.TurnBasedMatchInterface = TurnBasedMatchInterface;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1057,10 +1057,10 @@ void APartyBeaconClient::ClientSendReservationUpdates(int32 NumRemainingReservat
 // Function OnlineSubsystemUtils.PartyBeaconClient.ServerAddOrUpdateReservationRequest
 // (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
-// class FString                           SessionID                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           SessionId                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FPartyReservation                Reservation                                            (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void APartyBeaconClient::ServerAddOrUpdateReservationRequest(const class FString& SessionID, const struct FPartyReservation& Reservation)
+void APartyBeaconClient::ServerAddOrUpdateReservationRequest(const class FString& SessionId, const struct FPartyReservation& Reservation)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1069,7 +1069,7 @@ void APartyBeaconClient::ServerAddOrUpdateReservationRequest(const class FString
 
 	Params::PartyBeaconClient_ServerAddOrUpdateReservationRequest Parms{};
 
-	Parms.SessionID = std::move(SessionID);
+	Parms.SessionId = std::move(SessionId);
 	Parms.Reservation = std::move(Reservation);
 
 	auto Flgs = Func->FunctionFlags;
@@ -1109,10 +1109,10 @@ void APartyBeaconClient::ServerCancelReservationRequest(const struct FUniqueNetI
 // Function OnlineSubsystemUtils.PartyBeaconClient.ServerRemoveMemberFromReservationRequest
 // (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
-// class FString                           SessionID                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           SessionId                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FPartyReservation                ReservationUpdate                                      (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void APartyBeaconClient::ServerRemoveMemberFromReservationRequest(const class FString& SessionID, const struct FPartyReservation& ReservationUpdate)
+void APartyBeaconClient::ServerRemoveMemberFromReservationRequest(const class FString& SessionId, const struct FPartyReservation& ReservationUpdate)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1121,7 +1121,7 @@ void APartyBeaconClient::ServerRemoveMemberFromReservationRequest(const class FS
 
 	Params::PartyBeaconClient_ServerRemoveMemberFromReservationRequest Parms{};
 
-	Parms.SessionID = std::move(SessionID);
+	Parms.SessionId = std::move(SessionId);
 	Parms.ReservationUpdate = std::move(ReservationUpdate);
 
 	auto Flgs = Func->FunctionFlags;
@@ -1136,10 +1136,10 @@ void APartyBeaconClient::ServerRemoveMemberFromReservationRequest(const class FS
 // Function OnlineSubsystemUtils.PartyBeaconClient.ServerReservationRequest
 // (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
-// class FString                           SessionID                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           SessionId                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FPartyReservation                Reservation                                            (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void APartyBeaconClient::ServerReservationRequest(const class FString& SessionID, const struct FPartyReservation& Reservation)
+void APartyBeaconClient::ServerReservationRequest(const class FString& SessionId, const struct FPartyReservation& Reservation)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1148,7 +1148,7 @@ void APartyBeaconClient::ServerReservationRequest(const class FString& SessionID
 
 	Params::PartyBeaconClient_ServerReservationRequest Parms{};
 
-	Parms.SessionID = std::move(SessionID);
+	Parms.SessionId = std::move(SessionId);
 	Parms.Reservation = std::move(Reservation);
 
 	auto Flgs = Func->FunctionFlags;
@@ -1163,10 +1163,10 @@ void APartyBeaconClient::ServerReservationRequest(const class FString& SessionID
 // Function OnlineSubsystemUtils.PartyBeaconClient.ServerUpdateReservationRequest
 // (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
-// class FString                           SessionID                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           SessionId                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FPartyReservation                ReservationUpdate                                      (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void APartyBeaconClient::ServerUpdateReservationRequest(const class FString& SessionID, const struct FPartyReservation& ReservationUpdate)
+void APartyBeaconClient::ServerUpdateReservationRequest(const class FString& SessionId, const struct FPartyReservation& ReservationUpdate)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1175,7 +1175,7 @@ void APartyBeaconClient::ServerUpdateReservationRequest(const class FString& Ses
 
 	Params::PartyBeaconClient_ServerUpdateReservationRequest Parms{};
 
-	Parms.SessionID = std::move(SessionID);
+	Parms.SessionId = std::move(SessionId);
 	Parms.ReservationUpdate = std::move(ReservationUpdate);
 
 	auto Flgs = Func->FunctionFlags;
@@ -1375,10 +1375,10 @@ void ASpectatorBeaconClient::ServerCancelReservationRequest(const struct FUnique
 // Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerReservationRequest
 // (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
-// class FString                           SessionID                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           SessionId                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FSpectatorReservation            Reservation                                            (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void ASpectatorBeaconClient::ServerReservationRequest(const class FString& SessionID, const struct FSpectatorReservation& Reservation)
+void ASpectatorBeaconClient::ServerReservationRequest(const class FString& SessionId, const struct FSpectatorReservation& Reservation)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1387,7 +1387,7 @@ void ASpectatorBeaconClient::ServerReservationRequest(const class FString& Sessi
 
 	Params::SpectatorBeaconClient_ServerReservationRequest Parms{};
 
-	Parms.SessionID = std::move(SessionID);
+	Parms.SessionId = std::move(SessionId);
 	Parms.Reservation = std::move(Reservation);
 
 	auto Flgs = Func->FunctionFlags;

@@ -143,11 +143,11 @@ bool UHeadMountedDisplayFunctionLibrary::ConfigureGestures(const struct FXRGestu
 // Function HeadMountedDisplay.HeadMountedDisplayFunctionLibrary.ConnectRemoteXRDevice
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class FString                           Ipaddress                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           IpAddress                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   BitRate                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EXRDeviceConnectionResult               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-EXRDeviceConnectionResult UHeadMountedDisplayFunctionLibrary::ConnectRemoteXRDevice(const class FString& Ipaddress, const int32 BitRate)
+EXRDeviceConnectionResult UHeadMountedDisplayFunctionLibrary::ConnectRemoteXRDevice(const class FString& IpAddress, const int32 BitRate)
 {
 	static class UFunction* Func = nullptr;
 
@@ -156,7 +156,7 @@ EXRDeviceConnectionResult UHeadMountedDisplayFunctionLibrary::ConnectRemoteXRDev
 
 	Params::HeadMountedDisplayFunctionLibrary_ConnectRemoteXRDevice Parms{};
 
-	Parms.Ipaddress = std::move(Ipaddress);
+	Parms.IpAddress = std::move(IpAddress);
 	Parms.BitRate = BitRate;
 
 	auto Flgs = Func->FunctionFlags;

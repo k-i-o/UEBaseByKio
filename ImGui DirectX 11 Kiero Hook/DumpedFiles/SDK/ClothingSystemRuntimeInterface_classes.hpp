@@ -18,23 +18,6 @@
 namespace SDK
 {
 
-// Class ClothingSystemRuntimeInterface.ClothSharedSimConfigBase
-// 0x0000 (0x0028 - 0x0028)
-class UClothSharedSimConfigBase final : public UObject
-{
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"ClothSharedSimConfigBase">();
-	}
-	static class UClothSharedSimConfigBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UClothSharedSimConfigBase>();
-	}
-};
-static_assert(alignof(UClothSharedSimConfigBase) == 0x000008, "Wrong alignment on UClothSharedSimConfigBase");
-static_assert(sizeof(UClothSharedSimConfigBase) == 0x000028, "Wrong size on UClothSharedSimConfigBase");
-
 // Class ClothingSystemRuntimeInterface.ClothConfigBase
 // 0x0000 (0x0028 - 0x0028)
 class UClothConfigBase : public UObject
@@ -51,6 +34,23 @@ public:
 };
 static_assert(alignof(UClothConfigBase) == 0x000008, "Wrong alignment on UClothConfigBase");
 static_assert(sizeof(UClothConfigBase) == 0x000028, "Wrong size on UClothConfigBase");
+
+// Class ClothingSystemRuntimeInterface.ClothSharedSimConfigBase
+// 0x0000 (0x0028 - 0x0028)
+class UClothSharedSimConfigBase final : public UObject
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"ClothSharedSimConfigBase">();
+	}
+	static class UClothSharedSimConfigBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UClothSharedSimConfigBase>();
+	}
+};
+static_assert(alignof(UClothSharedSimConfigBase) == 0x000008, "Wrong alignment on UClothSharedSimConfigBase");
+static_assert(sizeof(UClothSharedSimConfigBase) == 0x000028, "Wrong size on UClothSharedSimConfigBase");
 
 // Class ClothingSystemRuntimeInterface.ClothingAssetBase
 // 0x0020 (0x0048 - 0x0028)
@@ -94,10 +94,10 @@ static_assert(sizeof(UClothingSimulationFactory) == 0x000028, "Wrong size on UCl
 
 // Class ClothingSystemRuntimeInterface.ClothingInteractor
 // 0x0008 (0x0030 - 0x0028)
-class UClothingInteractor : public UObject
+class UClothingInteractor final : public UObject
 {
 public:
-	uint8                                         Pad_1306[0x8];                                     // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_17F4[0x8];                                     // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -118,7 +118,7 @@ class UClothingSimulationInteractor : public UObject
 {
 public:
 	TMap<class FName, class UClothingInteractor*> ClothingInteractors;                               // 0x0028(0x0050)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_1307[0x18];                                    // 0x0078(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_17F5[0x18];                                    // 0x0078(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClothConfigUpdated();
@@ -164,7 +164,7 @@ public:
 	int32                                         NumFixedVerts;                                     // 0x0078(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         MaxBoneWeights;                                    // 0x007C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<uint32>                                SelfCollisionIndices;                              // 0x0080(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1308[0x50];                                    // 0x0090(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_17F6[0x50];                                    // 0x0090(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

@@ -404,16 +404,15 @@ namespace Utils
 					continue;
 
 				const auto location = currActor->K2_GetActorLocation();
-				if (location.X == 0.f || location.Y == 0.f || location.Z == 0.f)
-					continue;
+				if (location.X == 0.f || location.Y == 0.f || location.Z == 0.f) continue;
 
 				//if (currActor->GetFullName().find("YOUR_NPC") != std::string::npos)
 				if (currActor->GetFullName().find("NPC_Police") != std::string::npos || currActor->GetFullName().find("NPC_Guard") != std::string::npos)
+				{
 					CheatVariables::TargetsList.push_back(currActor);
 				}
 
 				//std::cout << currActor->GetFullName() << std::endl;
-
 
 			}
 

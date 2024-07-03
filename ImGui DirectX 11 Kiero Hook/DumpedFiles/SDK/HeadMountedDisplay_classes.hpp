@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "HeadMountedDisplay_structs.hpp"
 #include "Engine_classes.hpp"
+#include "HeadMountedDisplay_structs.hpp"
 #include "InputCore_structs.hpp"
 
 
@@ -27,7 +27,7 @@ public:
 	static void CalibrateExternalTrackingToHMD(const struct FTransform& ExternalTrackingTransform);
 	static void ClearXRTimedInputActionDelegate(const class FName& ActionPath);
 	static bool ConfigureGestures(const struct FXRGestureConfig& GestureConfig);
-	static EXRDeviceConnectionResult ConnectRemoteXRDevice(const class FString& Ipaddress, const int32 BitRate);
+	static EXRDeviceConnectionResult ConnectRemoteXRDevice(const class FString& IpAddress, const int32 BitRate);
 	static void DisconnectRemoteXRDevice();
 	static bool EnableHMD(bool bEnable);
 	static void EnableLowPersistenceMode(bool bEnable);
@@ -82,43 +82,6 @@ public:
 static_assert(alignof(UHeadMountedDisplayFunctionLibrary) == 0x000008, "Wrong alignment on UHeadMountedDisplayFunctionLibrary");
 static_assert(sizeof(UHeadMountedDisplayFunctionLibrary) == 0x000028, "Wrong size on UHeadMountedDisplayFunctionLibrary");
 
-// Class HeadMountedDisplay.VRNotificationsComponent
-// 0x0090 (0x0140 - 0x00B0)
-class UVRNotificationsComponent : public UActorComponent
-{
-public:
-	FMulticastInlineDelegateProperty_             HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate; // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             HMDTrackingInitializedDelegate;                    // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             HMDRecenteredDelegate;                             // 0x00D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             HMDLostDelegate;                                   // 0x00E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             HMDReconnectedDelegate;                            // 0x00F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             HMDConnectCanceledDelegate;                        // 0x0100(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             HMDPutOnHeadDelegate;                              // 0x0110(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             HMDRemovedFromHeadDelegate;                        // 0x0120(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	FMulticastInlineDelegateProperty_             VRControllerRecenteredDelegate;                    // 0x0130(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"VRNotificationsComponent">();
-	}
-	static class UVRNotificationsComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UVRNotificationsComponent>();
-	}
-};
-static_assert(alignof(UVRNotificationsComponent) == 0x000008, "Wrong alignment on UVRNotificationsComponent");
-static_assert(sizeof(UVRNotificationsComponent) == 0x000140, "Wrong size on UVRNotificationsComponent");
-static_assert(offsetof(UVRNotificationsComponent, HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate) == 0x0000B0, "Member 'UVRNotificationsComponent::HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, HMDTrackingInitializedDelegate) == 0x0000C0, "Member 'UVRNotificationsComponent::HMDTrackingInitializedDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, HMDRecenteredDelegate) == 0x0000D0, "Member 'UVRNotificationsComponent::HMDRecenteredDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, HMDLostDelegate) == 0x0000E0, "Member 'UVRNotificationsComponent::HMDLostDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, HMDReconnectedDelegate) == 0x0000F0, "Member 'UVRNotificationsComponent::HMDReconnectedDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, HMDConnectCanceledDelegate) == 0x000100, "Member 'UVRNotificationsComponent::HMDConnectCanceledDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, HMDPutOnHeadDelegate) == 0x000110, "Member 'UVRNotificationsComponent::HMDPutOnHeadDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, HMDRemovedFromHeadDelegate) == 0x000120, "Member 'UVRNotificationsComponent::HMDRemovedFromHeadDelegate' has a wrong offset!");
-static_assert(offsetof(UVRNotificationsComponent, VRControllerRecenteredDelegate) == 0x000130, "Member 'UVRNotificationsComponent::VRControllerRecenteredDelegate' has a wrong offset!");
-
 // Class HeadMountedDisplay.HandKeypointConversion
 // 0x0000 (0x0028 - 0x0028)
 class UHandKeypointConversion final : public UBlueprintFunctionLibrary
@@ -146,19 +109,19 @@ class UMotionControllerComponent final : public UPrimitiveComponent
 public:
 	int32                                         PlayerIndex;                                       // 0x0450(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EControllerHand                               Hand;                                              // 0x0454(0x0001)(BlueprintVisible, ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14F6[0x3];                                     // 0x0455(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_16D9[0x3];                                     // 0x0455(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	class FName                                   MotionSource;                                      // 0x0458(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bDisableLowLatencyUpdate : 1;                      // 0x0460(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_14F7[0x3];                                     // 0x0461(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_16DA[0x3];                                     // 0x0461(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	ETrackingStatus                               CurrentTrackingStatus;                             // 0x0464(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bDisplayDeviceModel;                               // 0x0465(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14F8[0x2];                                     // 0x0466(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_16DB[0x2];                                     // 0x0466(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	class FName                                   DisplayModelSource;                                // 0x0468(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UStaticMesh*                            CustomDisplayMesh;                                 // 0x0470(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class UMaterialInterface*>             DisplayMeshMaterialOverrides;                      // 0x0478(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14F9[0x68];                                    // 0x0488(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_16DC[0x68];                                    // 0x0488(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
 	class UPrimitiveComponent*                    DisplayComponent;                                  // 0x04F0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_14FA[0x18];                                    // 0x04F8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_16DD[0x18];                                    // 0x04F8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	struct FVector GetHandJointPosition(int32 JointIndex, bool* bValueFound);
@@ -233,6 +196,43 @@ public:
 static_assert(alignof(UMotionTrackedDeviceFunctionLibrary) == 0x000008, "Wrong alignment on UMotionTrackedDeviceFunctionLibrary");
 static_assert(sizeof(UMotionTrackedDeviceFunctionLibrary) == 0x000028, "Wrong size on UMotionTrackedDeviceFunctionLibrary");
 
+// Class HeadMountedDisplay.VRNotificationsComponent
+// 0x0090 (0x0140 - 0x00B0)
+class UVRNotificationsComponent final : public UActorComponent
+{
+public:
+	FMulticastInlineDelegateProperty_             HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate; // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             HMDTrackingInitializedDelegate;                    // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             HMDRecenteredDelegate;                             // 0x00D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             HMDLostDelegate;                                   // 0x00E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             HMDReconnectedDelegate;                            // 0x00F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             HMDConnectCanceledDelegate;                        // 0x0100(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             HMDPutOnHeadDelegate;                              // 0x0110(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             HMDRemovedFromHeadDelegate;                        // 0x0120(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	FMulticastInlineDelegateProperty_             VRControllerRecenteredDelegate;                    // 0x0130(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"VRNotificationsComponent">();
+	}
+	static class UVRNotificationsComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UVRNotificationsComponent>();
+	}
+};
+static_assert(alignof(UVRNotificationsComponent) == 0x000008, "Wrong alignment on UVRNotificationsComponent");
+static_assert(sizeof(UVRNotificationsComponent) == 0x000140, "Wrong size on UVRNotificationsComponent");
+static_assert(offsetof(UVRNotificationsComponent, HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate) == 0x0000B0, "Member 'UVRNotificationsComponent::HMDTrackingInitializingAndNeedsHMDToBeTrackedDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, HMDTrackingInitializedDelegate) == 0x0000C0, "Member 'UVRNotificationsComponent::HMDTrackingInitializedDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, HMDRecenteredDelegate) == 0x0000D0, "Member 'UVRNotificationsComponent::HMDRecenteredDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, HMDLostDelegate) == 0x0000E0, "Member 'UVRNotificationsComponent::HMDLostDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, HMDReconnectedDelegate) == 0x0000F0, "Member 'UVRNotificationsComponent::HMDReconnectedDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, HMDConnectCanceledDelegate) == 0x000100, "Member 'UVRNotificationsComponent::HMDConnectCanceledDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, HMDPutOnHeadDelegate) == 0x000110, "Member 'UVRNotificationsComponent::HMDPutOnHeadDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, HMDRemovedFromHeadDelegate) == 0x000120, "Member 'UVRNotificationsComponent::HMDRemovedFromHeadDelegate' has a wrong offset!");
+static_assert(offsetof(UVRNotificationsComponent, VRControllerRecenteredDelegate) == 0x000130, "Member 'UVRNotificationsComponent::VRControllerRecenteredDelegate' has a wrong offset!");
+
 // Class HeadMountedDisplay.XRAssetFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UXRAssetFunctionLibrary final : public UBlueprintFunctionLibrary
@@ -261,7 +261,7 @@ class UAsyncTask_LoadXRDeviceVisComponent final : public UBlueprintAsyncActionBa
 public:
 	FMulticastInlineDelegateProperty_             OnModelLoaded;                                     // 0x0030(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	FMulticastInlineDelegateProperty_             OnLoadFailure;                                     // 0x0040(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_150A[0x8];                                     // 0x0050(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_16ED[0x8];                                     // 0x0050(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	class UPrimitiveComponent*                    SpawnedComponent;                                  // 0x0058(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:

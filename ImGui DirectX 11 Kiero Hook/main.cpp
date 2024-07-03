@@ -162,7 +162,7 @@ static LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
 	return CallWindowProcA(oWndProc, hWnd, uMsg, wParam, lParam);
 }
 
-static bool UpdateSDK() {
+/*static bool UpdateSDK() {
 
 	// GET WORLD AND ENGINE
 	CheatVariables::World = SDK::UWorld::GetWorld();
@@ -203,7 +203,7 @@ static bool UpdateSDK() {
 	}
 
 	return true;
-}
+}*/
 
 static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 {
@@ -257,9 +257,7 @@ static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 		}
 	#pragma endregion
 
-	if (UpdateSDK()) {
-		Utils::FetchObjects();
-	}
+	Utils::FetchObjects();
 
 	#pragma region CHEATS
 
